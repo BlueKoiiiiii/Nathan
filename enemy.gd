@@ -9,7 +9,7 @@ var hp = 100
 
 
 func _physics_process(delta):
-	print(hp)
+	# print(hp)
 	if player_chase:
 		if attack == 1: 
 			$AnimatedSprite2D.play("Attack")
@@ -58,4 +58,4 @@ func _on_hitbox_body_entered(body):
 	$hpbar.value = hp
 	hit += 1
 	hp = hp - hit
-	print(hp)
+	# print(hp)

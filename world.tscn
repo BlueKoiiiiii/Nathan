@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://World.gd" id="1_2tdyy"]
 [ext_resource type="PackedScene" uid="uid://bvn0sp1650eej" path="res://main_player.tscn" id="1_dmwcr"]
 [ext_resource type="PackedScene" uid="uid://cvs3x1cpeslar" path="res://enemy.tscn" id="3_m18jb"]
-[ext_resource type="PackedScene" path="res://bg_fog_of_war.tscn" id="4_g11b8"]
+[ext_resource type="PackedScene" uid="uid://b4oohh0qrfaam" path="res://bg_fog_of_war.tscn" id="4_g11b8"]
 
 [node name="world" type="Node2D"]
 script = ExtResource("1_2tdyy")
@@ -34,6 +34,11 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "127.0.0.1"
 placeholder_text = "127.0.0.1"
+
+[node name="LineEdit2" type="LineEdit" parent="Multi/Ui"]
+layout_mode = 2
+text = "Bob"
+placeholder_text = "Name"
 
 [node name="Main Player" parent="." instance=ExtResource("1_dmwcr")]
 position = Vector2(569, 284)
