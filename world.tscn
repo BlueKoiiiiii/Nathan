@@ -1,8 +1,36 @@
-[gd_scene load_steps=2 format=3 uid="uid://brer42vcvpr1y"]
+[gd_scene load_steps=3 format=3 uid="uid://brer42vcvpr1y"]
 
+[ext_resource type="Script" path="res://World.gd" id="1_2tdyy"]
 [ext_resource type="PackedScene" uid="uid://bvn0sp1650eej" path="res://main_player.tscn" id="1_dmwcr"]
 
 [node name="world" type="Node2D"]
+script = ExtResource("1_2tdyy")
+
+[node name="Multi" type="Node" parent="."]
+
+[node name="MultiContainer" type="HBoxContainer" parent="Multi"]
+offset_left = -557.0
+offset_top = -333.0
+offset_right = -265.0
+offset_bottom = -293.0
+mouse_filter = 2
+
+[node name="Direct" type="Label" parent="Multi/MultiContainer"]
+layout_mode = 2
+text = "Connect"
+
+[node name="Host" type="Button" parent="Multi/MultiContainer"]
+layout_mode = 2
+text = "Host"
+
+[node name="Connect" type="Button" parent="Multi/MultiContainer"]
+layout_mode = 2
+text = "Connect"
+
+[node name="LineEdit" type="LineEdit" parent="Multi/MultiContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+placeholder_text = "127.0.0.1"
 
 [node name="Main Player" parent="." instance=ExtResource("1_dmwcr")]
-position = Vector2(33, 62)
+position = Vector2(569, 284)
