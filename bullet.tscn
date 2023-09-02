@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dd0ktge2otrr8"]
+[gd_scene load_steps=28 format=3 uid="uid://dd0ktge2otrr8"]
 
 [ext_resource type="Texture2D" uid="uid://r4lyywymtsv8" path="res://Spirtes/WaterAttack/sprite_0.png" id="1_dgcbq"]
 [ext_resource type="Script" path="res://bullet.gd" id="1_prmfb"]
@@ -11,6 +11,19 @@
 [ext_resource type="Texture2D" uid="uid://dyf2lv3qsot3g" path="res://Spirtes/WaterAttack/sprite_7.png" id="8_ivaxh"]
 [ext_resource type="Texture2D" uid="uid://kj5w3fnvopfb" path="res://Spirtes/WaterAttack/sprite_8.png" id="9_peeff"]
 [ext_resource type="Script" path="res://AnimatedSprite2D.gd" id="10_b3os5"]
+[ext_resource type="Texture2D" uid="uid://cufo3eh4cwyjj" path="res://WaterExplosion/sprite_00.png" id="11_yewjl"]
+[ext_resource type="Texture2D" uid="uid://b5us13w6n3l1d" path="res://WaterExplosion/sprite_01.png" id="12_qptoo"]
+[ext_resource type="Texture2D" uid="uid://b1uusqe3oig8b" path="res://WaterExplosion/sprite_02.png" id="13_2dv2w"]
+[ext_resource type="Texture2D" uid="uid://dksd72xwd2lmf" path="res://WaterExplosion/sprite_03.png" id="14_3jivo"]
+[ext_resource type="Texture2D" uid="uid://vvovi8phkwgr" path="res://WaterExplosion/sprite_04.png" id="15_go36b"]
+[ext_resource type="Texture2D" uid="uid://bmhf60sn60ft3" path="res://WaterExplosion/sprite_05.png" id="16_idenw"]
+[ext_resource type="Texture2D" uid="uid://dopr0e2n5m1eu" path="res://WaterExplosion/sprite_06.png" id="17_uo0r1"]
+[ext_resource type="Texture2D" uid="uid://dlg8cdivvuy4o" path="res://WaterExplosion/sprite_07.png" id="18_1jrvb"]
+[ext_resource type="Texture2D" uid="uid://nfvs8586swxf" path="res://WaterExplosion/sprite_08.png" id="19_0uvlq"]
+[ext_resource type="Texture2D" uid="uid://c6eggjugj3t7" path="res://WaterExplosion/sprite_09.png" id="20_cglug"]
+[ext_resource type="Texture2D" uid="uid://dvpq2c0gnk6gf" path="res://WaterExplosion/sprite_10.png" id="21_g6pna"]
+[ext_resource type="Texture2D" uid="uid://c4e71vygbsy1w" path="res://WaterExplosion/sprite_11.png" id="22_0gnjd"]
+[ext_resource type="Texture2D" uid="uid://ce26hg5m25ir8" path="res://WaterExplosion/sprite_12.png" id="23_0xljo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_shnxt"]
 animations = [{
@@ -48,46 +61,43 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("11_yewjl")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("12_qptoo")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("13_2dv2w")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("14_3jivo")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("15_go36b")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("16_idenw")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("17_uo0r1")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("18_1jrvb")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("19_0uvlq")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("20_cglug")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("21_g6pna")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("22_0gnjd")
 }, {
 "duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
+"texture": ExtResource("23_0xljo")
 }],
 "loop": true,
 "name": &"explosion",
@@ -110,10 +120,12 @@ script = ExtResource("1_prmfb")
 
 [node name="Bulletanim" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_shnxt")
-frame_progress = 0.568192
+animation = &"explosion"
 script = ExtResource("10_b3os5")
 
 [node name="hitbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 scale = Vector2(0.9375, -0.857143)
@@ -126,3 +138,4 @@ shape = SubResource("CircleShape2D_hefuo")
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="." to="Bulletanim" method="_on_bullet_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

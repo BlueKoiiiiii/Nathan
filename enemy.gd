@@ -7,6 +7,7 @@ var attack = 0
 var hit = 0
 var hp = 100
 
+
 func _physics_process(delta):
 	print(hp)
 	if player_chase:
@@ -54,6 +55,7 @@ func _on_attack_range_body_exited(body):
 
 
 func _on_hitbox_body_entered(body):
+	$hpbar.value = hp
 	hit += 1
 	hp = hp - hit
 	print(hp)
