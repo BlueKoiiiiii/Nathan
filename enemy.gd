@@ -27,9 +27,10 @@ func _physics_process(delta):
 
 
 
-#func _on_detection_area_body_entered(body):
-#	player = body
-#	player_chase = true
+func _on_detection_area_body_entered(body):
+	pass
+	player = body
+	player_chase = true
 
 
 

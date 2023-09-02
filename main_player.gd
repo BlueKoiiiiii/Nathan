@@ -62,22 +62,24 @@ func _physics_process(delta):
 	
 
 var SOMEONE = false
-var bullet_to_my_head = null
+var bullet_to_my_head = false
 
 
 func shoot():
-	get_parent().add_child(bullet)
-	bullet.global_position = global_position
-	var target = get_global_mouse_position()
-	var direction = target - global_position
-	bullet.set_linear_velocity(direction)
+	if !bullet_to_my_head:
+		get_parent().add_child(bullet)
+		bullet.global_position = global_position
+		var target = get_global_mouse_position()
+		var direction = target - global_position
+		bullet.set_linear_velocity(direction)
+		bullet_to_my_head = true
+	else:
+		bullet.global_position = global_position
+		var target = get_global_mouse_position()
+		var direction = target - global_position
+		bullet.set_linear_velocity(direction)
 
-		
-	
-#	await get_tree().create_timer(3).timeout
-#	get_parent().remove_child(bullet)
 
-	
 #func shoot():
 #	if !SOMEONE:
 #		get_parent().add_child(bullet)
