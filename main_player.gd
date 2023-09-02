@@ -1,19 +1,22 @@
 extends CharacterBody2D
 var bullet = preload("res://bullet.tscn").instantiate()
-var enemy = preload("res://enemy.tscn").instantiate()
-@onready 
+@onready var hpbar: Node
 #onready var bullet = $bullet
 var WHO = 0
 var it = 0
 var SPEED = 500.0
 var bulletspeed = 2000
+var explode = false
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 
 
+func _ready():
+	var explode = false
 	
 @onready var anim = get_node("AnimationPlayer")
 func _physics_process(delta):
-	print(EditorSceneFormatImporterBlend)
+#	print(EditorSceneFormatImporterBlend)
 	# Add the gravity.
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -42,13 +45,23 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		if velocity.y ==0: 
 			anim.play("Idle")
-			
+	
+
+
+#	print("hp is", hp)
+	
 	move_and_slide()
 	if Input.is_action_just_pressed("LMB"):
 #		WHO += 1
 		shoot()
+		var enemy = preload("res://enemy.tscn")
+		var enemyinstance = enemy.instantiate()
+		var hp = enemyinstance.hp
+		print("hp is", hp)
+		if $hpbar.value_changed:
+			explosion()
+			print("lower!")
 		
-	
 #	if WHO%2 == 0: 
 #		shoot()
 #		#print(WHO)
@@ -61,16 +74,29 @@ func _physics_process(delta):
 #
 	
 
-var SOMEONE = false
-var bullet_to_my_head = null
-
+#var SOMEONE = false
+#
+#var bullet_to_my_head = null
+func explosion():
+	var target = get_global_mouse_position()
+	var direction = target - global_position
+	bullet.set_linear_velocity(direction - direction)
+	explode = true
+#	instance.get_node(Bulletanim)
+	
 
 func shoot():
+	explode = false
+	bullet.visible = true
 	get_parent().add_child(bullet)
 	bullet.global_position = global_position
 	var target = get_global_mouse_position()
 	var direction = target - global_position
 	bullet.set_linear_velocity(direction)
+	
+
+
+	
 
 		
 	

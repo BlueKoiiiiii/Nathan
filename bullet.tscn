@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dd0ktge2otrr8"]
+[gd_scene load_steps=29 format=3 uid="uid://dd0ktge2otrr8"]
 
 [ext_resource type="Texture2D" uid="uid://r4lyywymtsv8" path="res://Spirtes/WaterAttack/sprite_0.png" id="1_dgcbq"]
 [ext_resource type="Script" path="res://bullet.gd" id="1_prmfb"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://dvpq2c0gnk6gf" path="res://WaterExplosion/sprite_10.png" id="21_g6pna"]
 [ext_resource type="Texture2D" uid="uid://c4e71vygbsy1w" path="res://WaterExplosion/sprite_11.png" id="22_0gnjd"]
 [ext_resource type="Texture2D" uid="uid://ce26hg5m25ir8" path="res://WaterExplosion/sprite_12.png" id="23_0xljo"]
+[ext_resource type="PackedScene" uid="uid://bvn0sp1650eej" path="res://main_player.tscn" id="25_kdbm5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_shnxt"]
 animations = [{
@@ -134,6 +135,8 @@ shape = SubResource("CircleShape2D_t8mtp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_hefuo")
+
+[node name="Main_Player" parent="." instance=ExtResource("25_kdbm5")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="." to="Bulletanim" method="_on_bullet_body_entered"]

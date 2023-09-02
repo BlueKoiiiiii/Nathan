@@ -242,3 +242,4 @@ show_percentage = false
 [connection signal="body_entered" from="attack_range" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="attack_range" to="." method="_on_attack_range_body_exited"]
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="value_changed" from="hpbar" to="." method="_on_hpbar_value_changed"]

@@ -5,8 +5,9 @@ var player = null
 var direction = 0
 var attack = 0
 var hit = 0
-var hp = 0
+var hp = 100 - hit
 
+@export var hpbar: Node
 
 func _physics_process(delta):
 #	print(attack)
@@ -62,6 +63,7 @@ func _on_hitbox_body_entered(body):
 	$hpbar.value = hp
 	hit += 1
 	hp = 100 - hit
-	print(hp)
+	print("real hp is", hp)
+	
 
 	
