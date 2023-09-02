@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn3qn5sj5iprf"]
+
+[ext_resource type="Script" path="res://game_win.gd" id="1_tmh2d"]
+[ext_resource type="Texture2D" uid="uid://ca8japttjdwl6" path="res://asd.png" id="2_4xstb"]
+
+[node name="game_win" type="Node2D"]
+script = ExtResource("1_tmh2d")
+
+[node name="Asd" type="Sprite2D" parent="."]
+position = Vector2(577.5, 329.25)
+scale = Vector2(2.55778, 2.77673)
+texture = ExtResource("2_4xstb")
+
+[node name="CapturedImage" type="TextureRect" parent="."]
+offset_right = 1155.0
+offset_bottom = 649.0
+
+[node name="Timer" type="Timer" parent="."]

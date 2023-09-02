@@ -16,20 +16,27 @@ func get_hp():
 	return hp
 	
 func _physics_process(delta):
-#	print(attack)
-	if player_chase:
-		if attack == 1: 
-			$AnimatedSprite2D.play("Attack")
-		else:
-			print(position)
-			position += (player.position - position)/speed
-			if direction == 0:
-				$AnimatedSprite2D.play("Right")
-			else: 
-				$AnimatedSprite2D.play("Left")
+	if hp == 1:
+		$AnimatedSprite2D.play("death")
+		await get_tree().create_timer(1.5).timeout 
+		hp = 200
+#		get_tree().change_scene_to_file("res://game_win.tscn")
+	elif 150 > hp and hp > 1:
+	#	print(attack)
+		if player_chase:
+			if attack == 1: 
+				$AnimatedSprite2D.play("Attack")
+			else:
+				print(position)
+				position += (player.position - position)/speed
+				if direction == 0:
+					$AnimatedSprite2D.play("Right")
+				else: 
+					$AnimatedSprite2D.play("Left")
+		else: 
+			$AnimatedSprite2D.play("Idle")
 	else: 
-		$AnimatedSprite2D.play("Idle")
-	
+		get_tree().change_scene_to_file("res://game_win.tscn")
 		
 
 

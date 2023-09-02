@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cvs3x1cpeslar"]
+[gd_scene load_steps=52 format=3 uid="uid://cvs3x1cpeslar"]
 
 [ext_resource type="Script" path="res://enemy.gd" id="1_bwifn"]
 [ext_resource type="Texture2D" uid="uid://tgx6bvsjq7sy" path="res://Spirtes/Boss_attack/sprite_00.png" id="2_bkvsq"]
@@ -29,6 +29,21 @@
 [ext_resource type="Texture2D" uid="uid://micx8q1baa4t" path="res://Spirtes/BossRight/sprite_1.png" id="27_nv0kk"]
 [ext_resource type="Texture2D" uid="uid://bu25gda2dm5gk" path="res://Spirtes/BossRight/sprite_2.png" id="28_bhk25"]
 [ext_resource type="Texture2D" uid="uid://dgi02j33xv5g6" path="res://Spirtes/BossRight/sprite_3.png" id="29_3142m"]
+[ext_resource type="Texture2D" uid="uid://bgk6xeuonekqg" path="res://Spirtes/MosseDeath/Moss Detah00.png" id="30_503co"]
+[ext_resource type="Texture2D" uid="uid://5rr3gox0glff" path="res://Spirtes/MosseDeath/Moss Detah01.png" id="31_5ti0i"]
+[ext_resource type="Texture2D" uid="uid://ckdtuvr6krg5l" path="res://Spirtes/MosseDeath/Moss Detah02.png" id="32_5ebx0"]
+[ext_resource type="Texture2D" uid="uid://blkoo2yt8llhv" path="res://Spirtes/MosseDeath/Moss Detah03.png" id="33_fhxai"]
+[ext_resource type="Texture2D" uid="uid://ce3iogtnux3ej" path="res://Spirtes/MosseDeath/Moss Detah04.png" id="34_5qfcp"]
+[ext_resource type="Texture2D" uid="uid://dmcxbovq73bf1" path="res://Spirtes/MosseDeath/Moss Detah05.png" id="35_ws8qw"]
+[ext_resource type="Texture2D" uid="uid://csk47liaj52qm" path="res://Spirtes/MosseDeath/Moss Detah06.png" id="36_fb45j"]
+[ext_resource type="Texture2D" uid="uid://f0yp1lsj0vo5" path="res://Spirtes/MosseDeath/Moss Detah07.png" id="37_ieeo2"]
+[ext_resource type="Texture2D" uid="uid://gv43t40hcq5w" path="res://Spirtes/MosseDeath/Moss Detah08.png" id="38_xp0qq"]
+[ext_resource type="Texture2D" uid="uid://chyamxaqudpt6" path="res://Spirtes/MosseDeath/Moss Detah09.png" id="39_1157k"]
+[ext_resource type="Texture2D" uid="uid://d205742vvnjx8" path="res://Spirtes/MosseDeath/Moss Detah10.png" id="40_nsr36"]
+[ext_resource type="Texture2D" uid="uid://8ecuerpxvvt8" path="res://Spirtes/MosseDeath/Moss Detah11.png" id="41_trlxc"]
+[ext_resource type="Texture2D" uid="uid://udkttdgewdvw" path="res://Spirtes/MosseDeath/Moss Detah12.png" id="42_4vuu6"]
+[ext_resource type="Texture2D" uid="uid://cnt5wj506bacj" path="res://Spirtes/MosseDeath/Moss Detah13.png" id="43_34t27"]
+[ext_resource type="Texture2D" uid="uid://dxsij1n07q4tb" path="res://Spirtes/MosseDeath/Moss Detah14.png" id="44_52wwe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cuweb"]
 size = Vector2(463, 346)
@@ -144,6 +159,56 @@ animations = [{
 "loop": true,
 "name": &"Right",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("30_503co")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_5ti0i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_5ebx0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_fhxai")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_5qfcp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_ws8qw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_fb45j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_ieeo2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_xp0qq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_1157k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_nsr36")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_trlxc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_4vuu6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_34t27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_52wwe")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tdakc"]
@@ -153,7 +218,7 @@ size = Vector2(2048.2, 1768.63)
 size = Vector2(1896.5, 1765)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lcc01"]
-size = Vector2(416.233, 163.456)
+size = Vector2(495.608, 218.839)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yi7hw"]
 size = Vector2(183, 204)
@@ -183,7 +248,8 @@ metadata/_edit_lock_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_e2n65")
-animation = &"Attack"
+animation = &"death"
+frame_progress = 0.834672
 
 [node name="right_side" type="Area2D" parent="."]
 position = Vector2(-366, -90)
@@ -214,7 +280,7 @@ collision_layer = 256
 collision_mask = 256
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack_range"]
-position = Vector2(-23.6905, 108.055)
+position = Vector2(-36.4468, 81.5023)
 scale = Vector2(1.12957, 1.91776)
 shape = SubResource("RectangleShape2D_lcc01")
 metadata/_edit_lock_ = true
