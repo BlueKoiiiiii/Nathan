@@ -5,23 +5,28 @@
 [node name="multiplayer" type="Node"]
 script = ExtResource("1_h6im3")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_right = 382.0
-offset_bottom = 52.0
+[node name="MultiUi" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(400, 50)
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
 
-[node name="Label" type="Label" parent="HBoxContainer"]
+[node name="Label" type="Label" parent="MultiUi"]
 layout_mode = 2
 text = "Direct:"
 
-[node name="Host" type="Button" parent="HBoxContainer"]
-layout_mode = 2
-text = "Host"
-
-[node name="Connect" type="Button" parent="HBoxContainer"]
+[node name="Connect" type="Button" parent="MultiUi"]
 layout_mode = 2
 text = "Connect"
 
-[node name="LineEdit" type="LineEdit" parent="HBoxContainer"]
+[node name="Host" type="Button" parent="MultiUi"]
 layout_mode = 2
-size_flags_horizontal = 3
-text = "127.0.0.1"
+text = "Host"
+
+[node name="ip" type="LineEdit" parent="MultiUi"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+placeholder_text = "127.0.0.1"
+
+[connection signal="pressed" from="MultiUi/Connect" to="." method="_on_connect_pressed"]
+[connection signal="pressed" from="MultiUi/Host" to="." method="_on_host_pressed"]
