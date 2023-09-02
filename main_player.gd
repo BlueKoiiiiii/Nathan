@@ -1,5 +1,5 @@
 extends CharacterBody2D
-var bullet = preload("res://bullet.tscn").instantiate()
+var bullet = preload("res://bullet.tscn")
 var enemy = preload("res://enemy.tscn").instantiate()
 @onready 
 #onready var bullet = $bullet
@@ -61,23 +61,17 @@ func _physics_process(delta):
 #
 	
 
-var SOMEONE = false
-var bullet_to_my_head = false
-
-
 func shoot():
-	if !bullet_to_my_head:
-		get_parent().add_child(bullet)
-		bullet.global_position = global_position
-		var target = get_global_mouse_position()
-		var direction = target - global_position
-		bullet.set_linear_velocity(direction)
-		bullet_to_my_head = true
-	else:
-		bullet.global_position = global_position
-		var target = get_global_mouse_position()
-		var direction = target - global_position
-		bullet.set_linear_velocity(direction)
+	var factor = 2.5
+	var temp = bullet.instantiate()
+	temp.position.y += 1000
+	temp.global_position = global_position
+	var target = get_global_mouse_position()
+	var direction = target - global_position
+	temp.set_linear_velocity(direction*factor)
+	get_parent().add_child(temp)
+
+
 
 
 #func shoot():

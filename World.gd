@@ -12,7 +12,7 @@ func _ready():
 
 func _physics_process(delta):
 	ourPosition = get_node("Main Player").position
-	print(ourPosition)
+	#print(ourPosition)
 
 func _peer_connected(id):
 	_register_player.rpc_id(id, player_info, ourPosition)
