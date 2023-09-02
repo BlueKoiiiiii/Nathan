@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://cb3v5w1fwe75b"]
+
+[ext_resource type="Script" path="res://Scenes/multiplayer.gd" id="1_h6im3"]
+
+[node name="multiplayer" type="Node"]
+script = ExtResource("1_h6im3")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 382.0
+offset_bottom = 52.0
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Direct:"
+
+[node name="Host" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Host"
+
+[node name="Connect" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Connect"
+
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "127.0.0.1"
