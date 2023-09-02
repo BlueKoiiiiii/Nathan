@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cvs3x1cpeslar"]
+[gd_scene load_steps=37 format=3 uid="uid://cvs3x1cpeslar"]
 
 [ext_resource type="Script" path="res://enemy.gd" id="1_bwifn"]
 [ext_resource type="Texture2D" uid="uid://tgx6bvsjq7sy" path="res://Spirtes/Boss_attack/sprite_00.png" id="2_bkvsq"]
@@ -155,6 +155,9 @@ size = Vector2(1896.5, 1765)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lcc01"]
 size = Vector2(865, 482.334)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yi7hw"]
+size = Vector2(183, 204)
+
 [node name="enemy" type="CharacterBody2D"]
 z_index = -100
 script = ExtResource("1_bwifn")
@@ -214,9 +217,19 @@ scale = Vector2(1.12957, 1.91776)
 shape = SubResource("RectangleShape2D_lcc01")
 metadata/_edit_lock_ = true
 
+[node name="hitbox" type="Area2D" parent="."]
+position = Vector2(9, -18)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(-137.5, -39)
+shape = SubResource("RectangleShape2D_yi7hw")
+
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
 [connection signal="body_entered" from="right_side" to="." method="_on_right_side_body_entered"]
 [connection signal="body_entered" from="left_side" to="." method="_on_left_side_body_entered"]
 [connection signal="body_entered" from="attack_range" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="attack_range" to="." method="_on_attack_range_body_exited"]
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

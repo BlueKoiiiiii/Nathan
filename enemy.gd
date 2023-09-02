@@ -4,8 +4,11 @@ var player_chase = false
 var player = null
 var direction = 0
 var attack = 0
+var hit = 0
+var hp = 100
 
 func _physics_process(delta):
+	print(hp)
 	if player_chase:
 		if attack == 1: 
 			$AnimatedSprite2D.play("Attack")
@@ -48,3 +51,9 @@ func _on_attack_range_body_entered(body):
 
 func _on_attack_range_body_exited(body):
 	var attack = 0
+
+
+func _on_hitbox_body_entered(body):
+	hit += 1
+	hp = hp - hit
+	print(hp)

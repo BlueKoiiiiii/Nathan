@@ -1,7 +1,6 @@
 extends CharacterBody2D
 var bullet = preload("res://bullet.tscn").instantiate()
-
-
+#onready var bullet = $bullet
 var WHO = 0
 var it = 0
 var SPEED = 500.0
@@ -42,35 +41,47 @@ func _physics_process(delta):
 			
 	move_and_slide()
 	if Input.is_action_just_pressed("LMB"):
-		WHO += 1
+#		WHO += 1
+		shoot()
 		
 	
-	if WHO%2 == 0: 
-		shoot()
-		#print(WHO)
-		bullet.visible = true
-		it = 0
-	else:
-		if it == 0:
-			bullet.visible = false
-			it += 1
-		
+#	if WHO%2 == 0: 
+#		shoot()
+#		#print(WHO)
+#		bullet.visible = true
+#		it = 0
+#	else:
+#		if it == 0:
+#			bullet.visible = false
+#			it += 1
+#
 	
 
 var SOMEONE = false
 var bullet_to_my_head = null
 
+
 func shoot():
-	if !SOMEONE:
-		get_parent().add_child(bullet)
-		bullet_to_my_head = bullet 
-		bullet.global_position = global_position
-		var target = get_global_mouse_position()
-		var direction = target - global_position
-		bullet.set_linear_velocity(direction)
-		SOMEONE = true
-#		bullet.play("default")
-	else:
-		var target = get_global_mouse_position()
-		var direction = target - global_position
-		bullet.set_linear_velocity(direction)
+	get_parent().add_child(bullet)
+	bullet.global_position = global_position
+	var target = get_global_mouse_position()
+	var direction = target - global_position
+	bullet.set_linear_velocity(direction)
+	await get_tree().create_timer(3).timeout
+	get_parent().remove_child(bullet)
+
+	
+#func shoot():
+#	if !SOMEONE:
+#		get_parent().add_child(bullet)
+#		bullet_to_my_head = bullet 
+#		bullet.global_position = global_position
+#		var target = get_global_mouse_position()
+#		var direction = target - global_position
+#		bullet.set_linear_velocity(direction)
+#		SOMEONE = true
+##		bullet.play("default")
+#	else:
+#		var target = get_global_mouse_position()
+#		var direction = target - global_position
+#		bullet.set_linear_velocity(direction)

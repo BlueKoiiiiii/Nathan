@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://dd0ktge2otrr8"]
+[gd_scene load_steps=15 format=3 uid="uid://dd0ktge2otrr8"]
 
 [ext_resource type="Texture2D" uid="uid://r4lyywymtsv8" path="res://Spirtes/WaterAttack/sprite_0.png" id="1_dgcbq"]
+[ext_resource type="Script" path="res://bullet.gd" id="1_prmfb"]
 [ext_resource type="Texture2D" uid="uid://db6dtxnoh4g0m" path="res://Spirtes/WaterAttack/sprite_1.png" id="2_n8j3h"]
 [ext_resource type="Texture2D" uid="uid://ilw8rkpjy0o" path="res://Spirtes/WaterAttack/sprite_2.png" id="3_dwgof"]
 [ext_resource type="Texture2D" uid="uid://bh0qqm5d1rarj" path="res://Spirtes/WaterAttack/sprite_3.png" id="4_kja1p"]
@@ -10,8 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://dyf2lv3qsot3g" path="res://Spirtes/WaterAttack/sprite_7.png" id="8_ivaxh"]
 [ext_resource type="Texture2D" uid="uid://kj5w3fnvopfb" path="res://Spirtes/WaterAttack/sprite_8.png" id="9_peeff"]
 [ext_resource type="Script" path="res://AnimatedSprite2D.gd" id="10_b3os5"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_56ygs"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_shnxt"]
 animations = [{
@@ -95,13 +94,35 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Bullet" type="RigidBody2D"]
-gravity_scale = 0.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_t8mtp"]
+radius = 29.2746
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_56ygs")
+[sub_resource type="CircleShape2D" id="CircleShape2D_hefuo"]
+radius = 19.6469
+
+[node name="Bullet" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 8
+gravity_scale = 0.0
+continuous_cd = 2
+contact_monitor = true
+script = ExtResource("1_prmfb")
 
 [node name="Bulletanim" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_shnxt")
-animation = &"explosion"
+frame_progress = 0.568192
 script = ExtResource("10_b3os5")
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+scale = Vector2(0.9375, -0.857143)
+shape = SubResource("CircleShape2D_t8mtp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_hefuo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="." to="Bulletanim" method="_on_bullet_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

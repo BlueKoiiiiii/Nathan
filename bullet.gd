@@ -1,14 +1,11 @@
 extends RigidBody2D
+var hit = false
 
-func _ready():
-	export (int) var speed = 500
-	var direction  = Vector2.ZERO
+func _on_body_entered(body):
+	$Bulletanim.play("explosion")
+	await get_tree().create_timer(3).timeout
+	$Bulletanim.play("default")
+	
 
-func set_direction(direction: Vector2):
-	self.direction = direction
 
-func _process(delta: float) -> void
-	if direction != Vector2.ZERO
-		var velocity = direction * speed
-		
-		global_position += velocity
+

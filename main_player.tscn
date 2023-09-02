@@ -328,7 +328,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_duiye"]
 size = Vector2(105, 175)
 
-[node name="Main Player" type="CharacterBody2D" groups=["player"]]
+[node name="Main_Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_nnhf4")
