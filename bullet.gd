@@ -1,14 +1,11 @@
 extends RigidBody2D
-var hit = false
-
-	
-
-
-
-
+var hitted = false
+@onready var Bullet = get_node("Bullet")
 
 func _on_hitbox_body_entered(body):
-	await get_tree().create_timer(2).timeout
 	$Bulletanim.play("explosion")
-	await get_tree().create_timer(3).timeout
-	$Bulletanim.play("default")
+
+
+func _on_hitbox_area_entered(area):
+	Bullet.visible = false
+	

@@ -5,15 +5,16 @@ var player = null
 var direction = 0
 var attack = 0
 var hit = 0
-var hp = 100
+var hp = 0
 
 
 func _physics_process(delta):
-	# print(hp)
+#	print(attack)
 	if player_chase:
 		if attack == 1: 
 			$AnimatedSprite2D.play("Attack")
 		else:
+			print(position)
 			position += (player.position - position)/speed
 			if direction == 0:
 				$AnimatedSprite2D.play("Right")
@@ -26,9 +27,9 @@ func _physics_process(delta):
 
 
 
-func _on_detection_area_body_entered(body):
-	player = body
-	player_chase = true
+#func _on_detection_area_body_entered(body):
+#	player = body
+#	player_chase = true
 
 
 
@@ -40,22 +41,25 @@ func _on_detection_area_body_exited(body):
 
 func _on_right_side_body_entered(body):
 	direction = 0
-
+	player = body
+	player_chase = true
 
 func _on_left_side_body_entered(body):
 	direction = 1
+	player = body
+	player_chase = true
 
 
 func _on_attack_range_body_entered(body):
-	var attack = 1
+	attack = 1
 
 
 func _on_attack_range_body_exited(body):
-	var attack = 0
+	attack = 0
 
 
 func _on_hitbox_body_entered(body):
 	$hpbar.value = hp
 	hit += 1
-	hp = hp - hit
-	# print(hp)
+	hp = 100 - hit
+	print(hp)

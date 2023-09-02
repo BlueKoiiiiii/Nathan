@@ -1,5 +1,7 @@
 extends CharacterBody2D
 var bullet = preload("res://bullet.tscn").instantiate()
+var enemy = preload("res://enemy.tscn").instantiate()
+@onready 
 #onready var bullet = $bullet
 var WHO = 0
 var it = 0
@@ -7,6 +9,8 @@ var SPEED = 500.0
 var bulletspeed = 2000
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 
+
+	
 @onready var anim = get_node("AnimationPlayer")
 func _physics_process(delta):
 	# print(EditorSceneFormatImporterBlend)
@@ -67,8 +71,11 @@ func shoot():
 	var target = get_global_mouse_position()
 	var direction = target - global_position
 	bullet.set_linear_velocity(direction)
-	await get_tree().create_timer(3).timeout
-	get_parent().remove_child(bullet)
+
+		
+	
+#	await get_tree().create_timer(3).timeout
+#	get_parent().remove_child(bullet)
 
 	
 #func shoot():
