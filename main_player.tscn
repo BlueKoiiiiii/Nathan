@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bvn0sp1650eej"]
+
+[node name="Main Player" type="CharacterBody2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
