@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dd0ktge2otrr8"]
+[gd_scene load_steps=27 format=3 uid="uid://dd0ktge2otrr8"]
 
 [ext_resource type="Texture2D" uid="uid://r4lyywymtsv8" path="res://Spirtes/WaterAttack/sprite_0.png" id="1_dgcbq"]
 [ext_resource type="Script" path="res://bullet.gd" id="1_prmfb"]
@@ -24,7 +24,6 @@
 [ext_resource type="Texture2D" uid="uid://dvpq2c0gnk6gf" path="res://WaterExplosion/sprite_10.png" id="21_g6pna"]
 [ext_resource type="Texture2D" uid="uid://c4e71vygbsy1w" path="res://WaterExplosion/sprite_11.png" id="22_0gnjd"]
 [ext_resource type="Texture2D" uid="uid://ce26hg5m25ir8" path="res://WaterExplosion/sprite_12.png" id="23_0xljo"]
-[ext_resource type="PackedScene" uid="uid://bvn0sp1650eej" path="res://main_player.tscn" id="25_kdbm5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_shnxt"]
 animations = [{
@@ -105,42 +104,35 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_t8mtp"]
-radius = 29.2746
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_hefuo"]
-radius = 19.6469
+[sub_resource type="CircleShape2D" id="CircleShape2D_ia147"]
+radius = 21.2132
 
 [node name="Bullet" type="RigidBody2D"]
 collision_layer = 2056
 collision_mask = 2056
+mass = 5.0
 gravity_scale = 0.0
 continuous_cd = 2
 contact_monitor = true
+can_sleep = false
+linear_damp = 0.5
+angular_damp = 0.5
 script = ExtResource("1_prmfb")
 
 [node name="Bulletanim" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_shnxt")
-animation = &"explosion"
+frame_progress = 0.641554
 script = ExtResource("10_b3os5")
 
-[node name="hitbox" type="Area2D" parent="."]
-collision_layer = 1024
-collision_mask = 1024
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-scale = Vector2(0.9375, -0.857143)
-shape = SubResource("CircleShape2D_t8mtp")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -3)
-shape = SubResource("CircleShape2D_hefuo")
+shape = SubResource("CircleShape2D_ia147")
 
-[node name="Main_Player" parent="." instance=ExtResource("25_kdbm5")]
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+autostart = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="." to="Bulletanim" method="_on_bullet_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
-[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
-[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
-[connection signal="body_exited" from="hitbox" to="." method="_on_hitbox_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

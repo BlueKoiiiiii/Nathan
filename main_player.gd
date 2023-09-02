@@ -1,24 +1,19 @@
 extends CharacterBody2D
-var bullet = preload("res://bullet.tscn").instantiate()
-@onready var hpbar: Node
+var bullet = preload("res://bullet.tscn")
+var enemy = preload("res://enemy.tscn").instantiate()
+@onready 
 #onready var bullet = $bullet
 var WHO = 0
 var it = 0
 var SPEED = 500.0
 var bulletspeed = 2000
-var explode = false
-
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 
 
-#func _ready():
-#	var global_data = get_node("res://enemy.tscn")
-#	var hp = global_data.get_hp()
-#	print("HP in AnotherScene: ", hp)
 	
 @onready var anim = get_node("AnimationPlayer")
 func _physics_process(delta):
-#	print(EditorSceneFormatImporterBlend)
+	# print(EditorSceneFormatImporterBlend)
 	# Add the gravity.
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -47,23 +42,13 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		if velocity.y ==0: 
 			anim.play("Idle")
-	
-
-
-#	print("hp is", hp)
-	
+			
 	move_and_slide()
 	if Input.is_action_just_pressed("LMB"):
 #		WHO += 1
 		shoot()
-		var enemy = preload("res://enemy.tscn")
-		var enemyinstance = enemy.instantiate()
-		var hp = enemyinstance.hp
-		print("hp is", hp)
-#		if $hpbar.value_changed:
-#			explosion()
-#			print("lower!")
 		
+	
 #	if WHO%2 == 0: 
 #		shoot()
 #		#print(WHO)
@@ -76,36 +61,19 @@ func _physics_process(delta):
 #
 	
 
-#var SOMEONE = false
-#
-#var bullet_to_my_head = null
-func explosion():
-	var target = get_global_mouse_position()
-	var direction = target - global_position
-	bullet.set_linear_velocity(direction - direction)
-	explode = true
-#	instance.get_node(Bulletanim)
-	
-
 func shoot():
-	explode = false
-	bullet.visible = true
-	get_parent().add_child(bullet)
-	bullet.global_position = global_position
+	var factor = 2.5
+	var temp = bullet.instantiate()
+	temp.position.y += 1000
+	temp.global_position = global_position
 	var target = get_global_mouse_position()
 	var direction = target - global_position
-	bullet.set_linear_velocity(direction)
-	
+	temp.set_linear_velocity(direction*factor)
+	get_parent().add_child(temp)
 
 
-	
 
-		
-	
-#	await get_tree().create_timer(3).timeout
-#	get_parent().remove_child(bullet)
 
-	
 #func shoot():
 #	if !SOMEONE:
 #		get_parent().add_child(bullet)
