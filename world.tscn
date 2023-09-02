@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://brer42vcvpr1y"]
 
-[ext_resource type="Texture2D" uid="uid://bxu2vwobjc57r" path="res://mgcw4f90.bmp" id="1_lo03h"]
+[ext_resource type="Texture2D" uid="uid://bxu2vwobjc57r" path="res://Spirtes/mgcw4f90.bmp" id="1_mlp2v"]
 
 [node name="world" type="Node2D"]
 
 [node name="Mgcw4f90" type="Sprite2D" parent="."]
 position = Vector2(356, 232)
-texture = ExtResource("1_lo03h")
+texture = ExtResource("1_mlp2v")

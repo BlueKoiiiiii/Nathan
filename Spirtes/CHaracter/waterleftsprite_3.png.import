@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxu2vwobjc57r"
-path="res://.godot/imported/mgcw4f90.bmp-f3726a0ef89a2df3c6f2db4f0e73fb99.ctex"
+uid="uid://chj3dwidqd2m3"
+path="res://.godot/imported/waterleftsprite_3.png-b47809104b7be3c47e751af52398d3e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mgcw4f90.bmp"
-dest_files=["res://.godot/imported/mgcw4f90.bmp-f3726a0ef89a2df3c6f2db4f0e73fb99.ctex"]
+source_file="res://Spirtes/CHaracter/waterleftsprite_3.png"
+dest_files=["res://.godot/imported/waterleftsprite_3.png-b47809104b7be3c47e751af52398d3e2.ctex"]
 
 [params]
 
