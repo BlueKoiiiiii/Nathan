@@ -10,6 +10,7 @@ var bulletspeed = 2000
 
 @onready var anim = get_node("AnimationPlayer")
 func _physics_process(delta):
+	print(EditorSceneFormatImporterBlend)
 	# Add the gravity.
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -46,7 +47,7 @@ func _physics_process(delta):
 	
 	if WHO%2 == 0: 
 		shoot()
-		print(WHO)
+		#print(WHO)
 		bullet.visible = true
 		it = 0
 	else:
@@ -68,7 +69,7 @@ func shoot():
 		var direction = target - global_position
 		bullet.set_linear_velocity(direction)
 		SOMEONE = true
-	#	bullet.play("default")
+#		bullet.play("default")
 	else:
 		var target = get_global_mouse_position()
 		var direction = target - global_position

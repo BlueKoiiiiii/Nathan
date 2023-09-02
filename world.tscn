@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://brer42vcvpr1y"]
+[gd_scene load_steps=5 format=3 uid="uid://brer42vcvpr1y"]
 
 [ext_resource type="Script" path="res://World.gd" id="1_2tdyy"]
 [ext_resource type="PackedScene" uid="uid://bvn0sp1650eej" path="res://main_player.tscn" id="1_dmwcr"]
 [ext_resource type="PackedScene" uid="uid://cvs3x1cpeslar" path="res://enemy.tscn" id="3_m18jb"]
+[ext_resource type="PackedScene" uid="uid://b4oohh0qrfaam" path="res://bg_fog_of_war.tscn" id="4_g11b8"]
 
 [node name="world" type="Node2D"]
 script = ExtResource("1_2tdyy")
@@ -38,7 +39,9 @@ placeholder_text = "127.0.0.1"
 position = Vector2(569, 284)
 
 [node name="enemy" parent="." instance=ExtResource("3_m18jb")]
-position = Vector2(1616, 66)
+position = Vector2(1453, 819)
+
+[node name="BG_FogOfWar" parent="." instance=ExtResource("4_g11b8")]
 
 [connection signal="pressed" from="Multi/Ui/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="Multi/Ui/Connect" to="." method="_on_connect_pressed"]

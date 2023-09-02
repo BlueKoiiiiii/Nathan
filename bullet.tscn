@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dd0ktge2otrr8"]
+[gd_scene load_steps=13 format=3 uid="uid://dd0ktge2otrr8"]
 
 [ext_resource type="Texture2D" uid="uid://r4lyywymtsv8" path="res://Spirtes/WaterAttack/sprite_0.png" id="1_dgcbq"]
 [ext_resource type="Texture2D" uid="uid://db6dtxnoh4g0m" path="res://Spirtes/WaterAttack/sprite_1.png" id="2_n8j3h"]
@@ -10,20 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://dyf2lv3qsot3g" path="res://Spirtes/WaterAttack/sprite_7.png" id="8_ivaxh"]
 [ext_resource type="Texture2D" uid="uid://kj5w3fnvopfb" path="res://Spirtes/WaterAttack/sprite_8.png" id="9_peeff"]
 [ext_resource type="Script" path="res://AnimatedSprite2D.gd" id="10_b3os5"]
-[ext_resource type="Texture2D" path="res://Spirtes/WaterExplosion/sprite_00.png" id="10_r6tmc"]
-[ext_resource type="Texture2D" path="res://Spirtes/WaterExplosion/sprite_01.png" id="11_6k6wp"]
-[ext_resource type="Texture2D" path="res://Spirtes/WaterExplosion/sprite_02.png" id="12_vpnfq"]
-[ext_resource type="Texture2D" path="res://Spirtes/WaterExplosion/sprite_03.png" id="13_rxfae"]
-[ext_resource type="Texture2D" path="res://Spirtes/WaterExplosion/sprite_04.png" id="14_xg1mp"]
-[ext_resource type="Texture2D" path="res://Spirtes/WaterExplosion/sprite_05.png" id="15_p5okn"]
-[ext_resource type="Texture2D" path="res://Spirtes/WaterExplosion/sprite_06.png" id="16_fmtnn"]
-[ext_resource type="Texture2D" path="res://Spirtes/WaterExplosion/sprite_07.png" id="17_urmxg"]
-[ext_resource type="Texture2D" path="res://Spirtes/WaterExplosion/sprite_08.png" id="18_eh4pm"]
-[ext_resource type="Texture2D" path="res://Spirtes/WaterExplosion/sprite_09.png" id="19_gif1o"]
-[ext_resource type="Texture2D" path="res://Spirtes/WaterExplosion/sprite_10.png" id="20_bx1nh"]
-[ext_resource type="Texture2D" path="res://Spirtes/WaterExplosion/sprite_11.png" id="21_foj31"]
-[ext_resource type="Texture2D" path="res://Spirtes/WaterExplosion/sprite_12.png" id="22_654r2"]
-[ext_resource type="Texture2D" path="res://Spirtes/WaterExplosion/sprite_13.png" id="23_syt2y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_56ygs"]
 
@@ -63,46 +49,46 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("10_r6tmc")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_6k6wp")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_vpnfq")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_rxfae")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_xg1mp")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("15_p5okn")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("16_fmtnn")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("17_urmxg")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("18_eh4pm")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("19_gif1o")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("20_bx1nh")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("21_foj31")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("22_654r2")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("23_syt2y")
+"texture": null
 }],
 "loop": true,
 "name": &"explosion",

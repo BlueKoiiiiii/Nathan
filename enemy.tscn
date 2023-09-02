@@ -156,12 +156,14 @@ size = Vector2(1896.5, 1765)
 size = Vector2(865, 482.334)
 
 [node name="enemy" type="CharacterBody2D"]
+z_index = -100
 script = ExtResource("1_bwifn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(9, -18)
 shape = SubResource("RectangleShape2D_cuweb")
 debug_color = Color(0, 0.592157, 0.74902, 0.419608)
+metadata/_edit_lock_ = true
 
 [node name="detection_area" type="Area2D" parent="."]
 position = Vector2(53, 32)
@@ -172,6 +174,7 @@ collision_mask = 2
 position = Vector2(2, -5)
 scale = Vector2(2.24, 2.08)
 shape = SubResource("CircleShape2D_uql7a")
+metadata/_edit_lock_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_e2n65")
@@ -187,6 +190,7 @@ collision_mask = 2
 position = Vector2(1371.86, 119.313)
 scale = Vector2(0.96, 2.12)
 shape = SubResource("RectangleShape2D_tdakc")
+metadata/_edit_lock_ = true
 
 [node name="left_side" type="Area2D" parent="."]
 position = Vector2(-366, -90)
@@ -197,6 +201,7 @@ collision_mask = 2
 position = Vector2(-583.75, 120.5)
 scale = Vector2(1, 2.2)
 shape = SubResource("RectangleShape2D_oqv55")
+metadata/_edit_lock_ = true
 
 [node name="attack_range" type="Area2D" parent="."]
 scale = Vector2(0.719346, 0.789741)
@@ -207,6 +212,7 @@ collision_mask = 3
 position = Vector2(3, -7.50002)
 scale = Vector2(1.12957, 1.91776)
 shape = SubResource("RectangleShape2D_lcc01")
+metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
