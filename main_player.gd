@@ -3,16 +3,21 @@ var bullet = preload("res://bullet.tscn").instantiate()
 
 
 
-const SPEED = 500.0
+var SPEED = 500.0
 var bulletspeed = 2000
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 
 @onready var anim = get_node("AnimationPlayer")
+
 func _physics_process(delta):
 	# Add the gravity.
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var ydirection = Input.get_axis("ui_up", "ui_down")
+	if Input.is_key_pressed(KEY_SHIFT):
+		SPEED = 1250
+	else:
+		SPEED = 500
 	if ydirection:
 		velocity.y = ydirection * SPEED
 		if velocity.x == 0:
@@ -33,15 +38,26 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		if velocity.y ==0: 
 			anim.play("Idle")
+			
 	move_and_slide()
-
-	if Input.is_action_pressed("LMB"):
+	if Input.is_action_just_pressed("LMB"):
 		shoot()
-		
 	
 
+var SOMEONE = false
+var bullet_to_my_head = null
+
 func shoot():
-	get_parent().add_child(bullet)
-	bullet.global_position = global_position
-	var target = get_global_mouse_position()
-	var direction = target - global_position
+	if !SOMEONE:
+		get_parent().add_child(bullet)
+		bullet_to_my_head = bullet 
+		bullet.global_position = global_position
+		var target = get_global_mouse_position()
+		var direction = target - global_position
+		bullet.set_linear_velocity(direction)
+		SOMEONE = true
+	#	bullet.play("default")
+	else:
+		var target = get_global_mouse_position()
+		var direction = target - global_position
+		bullet.set_linear_velocity(direction)

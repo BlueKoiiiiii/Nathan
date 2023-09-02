@@ -8,29 +8,33 @@ script = ExtResource("1_2tdyy")
 
 [node name="Multi" type="Node" parent="."]
 
-[node name="MultiContainer" type="HBoxContainer" parent="Multi"]
+[node name="Ui" type="HBoxContainer" parent="Multi"]
 offset_left = -557.0
 offset_top = -333.0
 offset_right = -265.0
 offset_bottom = -293.0
 mouse_filter = 2
 
-[node name="Direct" type="Label" parent="Multi/MultiContainer"]
+[node name="Direct" type="Label" parent="Multi/Ui"]
 layout_mode = 2
 text = "Connect"
 
-[node name="Host" type="Button" parent="Multi/MultiContainer"]
+[node name="Host" type="Button" parent="Multi/Ui"]
 layout_mode = 2
 text = "Host"
 
-[node name="Connect" type="Button" parent="Multi/MultiContainer"]
+[node name="Connect" type="Button" parent="Multi/Ui"]
 layout_mode = 2
 text = "Connect"
 
-[node name="LineEdit" type="LineEdit" parent="Multi/MultiContainer"]
+[node name="LineEdit" type="LineEdit" parent="Multi/Ui"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+text = "127.0.0.1"
 placeholder_text = "127.0.0.1"
 
 [node name="Main Player" parent="." instance=ExtResource("1_dmwcr")]
 position = Vector2(569, 284)
+
+[connection signal="pressed" from="Multi/Ui/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="Multi/Ui/Connect" to="." method="_on_connect_pressed"]

@@ -1,6 +1,5 @@
 [gd_scene load_steps=13 format=3 uid="uid://dd0ktge2otrr8"]
 
-[ext_resource type="Script" path="res://bullet.gd" id="1_23act"]
 [ext_resource type="Texture2D" uid="uid://r4lyywymtsv8" path="res://Spirtes/WaterAttack/sprite_0.png" id="1_dgcbq"]
 [ext_resource type="Texture2D" uid="uid://db6dtxnoh4g0m" path="res://Spirtes/WaterAttack/sprite_1.png" id="2_n8j3h"]
 [ext_resource type="Texture2D" uid="uid://ilw8rkpjy0o" path="res://Spirtes/WaterAttack/sprite_2.png" id="3_dwgof"]
@@ -10,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cxr0hh27b7sao" path="res://Spirtes/WaterAttack/sprite_6.png" id="7_yefs6"]
 [ext_resource type="Texture2D" uid="uid://dyf2lv3qsot3g" path="res://Spirtes/WaterAttack/sprite_7.png" id="8_ivaxh"]
 [ext_resource type="Texture2D" uid="uid://kj5w3fnvopfb" path="res://Spirtes/WaterAttack/sprite_8.png" id="9_peeff"]
+[ext_resource type="Script" path="res://AnimatedSprite2D.gd" id="10_b3os5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_56ygs"]
 
@@ -49,10 +49,12 @@ animations = [{
 }]
 
 [node name="Bullet" type="RigidBody2D"]
-script = ExtResource("1_23act")
+gravity_scale = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_56ygs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_shnxt")
+frame_progress = 0.464346
+script = ExtResource("10_b3os5")

@@ -7,18 +7,18 @@
 script = ExtResource("1_44spf")
 
 [node name="Play" type="Button" parent="."]
-offset_left = 796.0
-offset_top = 550.0
-offset_right = 936.0
-offset_bottom = 634.0
+offset_left = 768.0
+offset_top = 400.0
+offset_right = 908.0
+offset_bottom = 484.0
 text = "Play
 "
 
 [node name="Quit" type="Button" parent="."]
-offset_left = 962.0
-offset_top = 552.0
-offset_right = 1089.0
-offset_bottom = 636.0
+offset_left = 934.0
+offset_top = 402.0
+offset_right = 1061.0
+offset_bottom = 486.0
 scale = Vector2(1.08161, 1)
 text = "Quit"
 
@@ -38,6 +38,12 @@ show_behind_parent = true
 position = Vector2(585, 328.5)
 scale = Vector2(2.23438, 2.22569)
 texture = ExtResource("2_uuljs")
+
+[node name="MultiMenu" type="HBoxContainer" parent="."]
+offset_left = 796.0
+offset_top = 550.0
+offset_right = 836.0
+offset_bottom = 590.0
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
