@@ -78,4 +78,51 @@ func _process(delta):
 	var tile24 = tile4
 	tile24.y += -2
 	erase_cell(0, tile24)
-	
+	var tile25 = tile
+	tile25.x += 3
+	erase_cell(0, tile25)
+	var tile26 = tile
+	tile26.x += -3
+	erase_cell(0, tile26)
+	var tile27 = tile
+	tile27.y += 3
+	erase_cell(0, tile27)
+	var tile28 = tile
+	tile28.y += -3
+	erase_cell(0, tile28)
+	var tile29 = tile
+	tile29.x += 4
+	erase_cell(0, tile29)
+	var tile30 = tile
+	tile30.x += -4
+	erase_cell(0, tile30)
+	var tile31 = tile
+	tile31.y += 4
+	erase_cell(0, tile31)
+	var tile32 = tile
+	tile32.y += -4
+	erase_cell(0, tile32)
+	var tile33 = tile25
+	tile33.y += 1
+	erase_cell(0, tile33)
+	var tile34 = tile25
+	tile34.y += -1
+	erase_cell(0, tile34)
+	var tile35 = tile26
+	tile35.y += 1
+	erase_cell(0, tile35)
+	var tile36 = tile26
+	tile36.y += -1
+	erase_cell(0, tile36)
+	var tile37 = tile27
+	tile37.x += 1
+	erase_cell(0, tile37)
+	var tile38 = tile27
+	tile38.x += -1
+	erase_cell(0, tile38)
+	var tile39 = tile28
+	tile39.x += 1
+	erase_cell(0, tile39)
+	var tile40 = tile28
+	tile40.x += -1
+	erase_cell(0, tile40)
