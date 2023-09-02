@@ -249,7 +249,7 @@ metadata/_edit_lock_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_e2n65")
 animation = &"death"
-frame_progress = 0.834672
+frame_progress = 0.078471
 
 [node name="right_side" type="Area2D" parent="."]
 position = Vector2(-366, -90)
