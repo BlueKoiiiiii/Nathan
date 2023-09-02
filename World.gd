@@ -15,7 +15,16 @@ func _physics_process(delta):
 	#print(ourPosition)
 
 func _peer_connected(id):
-	_register_player.rpc_id(id, player_info, ourPosition)
+#	_register_player.rpc_id(id)
+#	_register_player(15,32)
+	pass
+
+@rpc("any_peer", "call_local", "reliable")
+func _register_player(new_player_info, theirPosition):
+	print(theirPosition)
+	var new_player_id = multiplayer.get_remote_sender_id()
+	players[new_player_id] = new_player_info
+	
 
 func _peer_disconnected(id):
 	player_info.erase(id)
@@ -30,11 +39,7 @@ func _connected_to_server():
 func load_game(game_scene_path, seed):
 	pass
 
-@rpc("any_peer", "reliable")
-func _register_player(new_player_info):
-	var new_player_id = multiplayer.get_remote_sender_id()
-	players[new_player_id] = new_player_info
-	
+
 
 func _on_connect_pressed():
 	print("connect")
