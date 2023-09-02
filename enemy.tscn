@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cvs3x1cpeslar"]
+[gd_scene load_steps=36 format=3 uid="uid://cvs3x1cpeslar"]
 
 [ext_resource type="Script" path="res://enemy.gd" id="1_bwifn"]
 [ext_resource type="Texture2D" uid="uid://tgx6bvsjq7sy" path="res://Spirtes/Boss_attack/sprite_00.png" id="2_bkvsq"]
@@ -31,7 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://dgi02j33xv5g6" path="res://Spirtes/BossRight/sprite_3.png" id="29_3142m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cuweb"]
-size = Vector2(128, 166)
+size = Vector2(422, 488)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uql7a"]
 radius = 880.145
@@ -147,16 +147,19 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tdakc"]
-size = Vector2(911.5, 1768.63)
+size = Vector2(2048.2, 1768.63)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oqv55"]
-size = Vector2(808.5, 1765)
+size = Vector2(1896.5, 1765)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lcc01"]
+size = Vector2(865, 482.334)
 
 [node name="enemy" type="CharacterBody2D"]
 script = ExtResource("1_bwifn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(58, 20)
+position = Vector2(9, -18)
 shape = SubResource("RectangleShape2D_cuweb")
 debug_color = Color(0, 0.592157, 0.74902, 0.419608)
 
@@ -167,12 +170,13 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
 position = Vector2(2, -5)
+scale = Vector2(2.24, 2.08)
 shape = SubResource("CircleShape2D_uql7a")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_e2n65")
-animation = &"Idle"
-frame_progress = 0.977683
+animation = &"Attack"
+frame_progress = 0.273758
 
 [node name="right_side" type="Area2D" parent="."]
 position = Vector2(-366, -90)
@@ -180,7 +184,8 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="right_side"]
-position = Vector2(826.25, 119.313)
+position = Vector2(1371.86, 119.313)
+scale = Vector2(0.96, 2.12)
 shape = SubResource("RectangleShape2D_tdakc")
 
 [node name="left_side" type="Area2D" parent="."]
@@ -189,10 +194,23 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="left_side"]
-position = Vector2(-39.75, 120.5)
+position = Vector2(-583.75, 120.5)
+scale = Vector2(1, 2.2)
 shape = SubResource("RectangleShape2D_oqv55")
+
+[node name="attack_range" type="Area2D" parent="."]
+scale = Vector2(0.719346, 0.789741)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_range"]
+position = Vector2(3, -7.50002)
+scale = Vector2(1.12957, 1.91776)
+shape = SubResource("RectangleShape2D_lcc01")
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
 [connection signal="body_entered" from="right_side" to="." method="_on_right_side_body_entered"]
 [connection signal="body_entered" from="left_side" to="." method="_on_left_side_body_entered"]
+[connection signal="body_entered" from="attack_range" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="attack_range" to="." method="_on_attack_range_body_exited"]

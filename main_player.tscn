@@ -30,8 +30,6 @@
 [ext_resource type="Texture2D" uid="uid://1h60fw5qsykd" path="res://Spirtes/CHaracter/Idle/sprite_6.png" id="13_godo3"]
 [ext_resource type="Texture2D" uid="uid://ca78sdi443f3a" path="res://Spirtes/CHaracter/Idle/sprite_7.png" id="14_upmdl"]
 
-[sub_resource type="Curve2D" id="Curve2D_ev3x6"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tcic8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lsisl"]
@@ -327,15 +325,13 @@ _data = {
 "Up": SubResource("Animation_c8t32")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_duiye"]
+size = Vector2(105, 175)
+
 [node name="Main Player" type="CharacterBody2D"]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_nnhf4")
-
-[node name="Path2D" type="Path2D" parent="."]
-curve = SubResource("Curve2D_ev3x6")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_tcic8")
@@ -356,3 +352,9 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+
+[node name="playerhitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerhitbox"]
+position = Vector2(-1.5, 3.5)
+shape = SubResource("RectangleShape2D_duiye")

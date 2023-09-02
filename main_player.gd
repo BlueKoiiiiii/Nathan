@@ -53,6 +53,7 @@ func _physics_process(delta):
 		if it == 0:
 			bullet.visible = false
 			it += 1
+		
 	
 
 var SOMEONE = false
