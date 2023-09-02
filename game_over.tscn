@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtfqj7cuyabvl"]
+
+[ext_resource type="Script" path="res://Game over.gd" id="1_8ikx5"]
+[ext_resource type="Texture2D" uid="uid://b56mpspag86nf" path="res://New Piskel.png" id="2_p0ttv"]
+
+[node name="Game over" type="Node2D"]
+script = ExtResource("1_8ikx5")
+
+[node name="NewPiskel" type="Sprite2D" parent="."]
+position = Vector2(577, 353.125)
+scale = Vector2(2.54222, 3.08019)
+texture = ExtResource("2_p0ttv")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+
+[node name="CapturedImage" type="TextureRect" parent="."]
+offset_right = 1151.0
+offset_bottom = 647.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

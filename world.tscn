@@ -3363,7 +3363,6 @@ position = Vector2(569, 284)
 position = Vector2(1453, 819)
 
 [node name="BG_FogOfWar" parent="." instance=ExtResource("4_g11b8")]
-visible = false
 
 [connection signal="pressed" from="Multi/Ui/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="Multi/Ui/Connect" to="." method="_on_connect_pressed"]

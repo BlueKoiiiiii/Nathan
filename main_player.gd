@@ -11,10 +11,10 @@ var explode = false
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 
 
-func _ready():
-	var global_data = get_node("res://enemy.tscn")
-	var hp = global_data.get_hp()
-	print("HP in AnotherScene: ", hp)
+#func _ready():
+#	var global_data = get_node("res://enemy.tscn")
+#	var hp = global_data.get_hp()
+#	print("HP in AnotherScene: ", hp)
 	
 @onready var anim = get_node("AnimationPlayer")
 func _physics_process(delta):
