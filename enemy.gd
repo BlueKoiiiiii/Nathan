@@ -14,7 +14,7 @@ func _physics_process(delta):
 		if attack == 1: 
 			$AnimatedSprite2D.play("Attack")
 		else:
-			print(position)
+			#print(position)
 			position += (player.position - position)/speed
 			if direction == 0:
 				$AnimatedSprite2D.play("Right")

@@ -4,6 +4,7 @@ const PORT = 3344
 var connected = false
 var PlayerPosition = Vector2(0,0)
 var players = {}
+var playersIdConnected = []
 var player_info = {"name" : "NAME", "id": ""}
 var playerKinematic = preload("res://main_player.tscn")
 
@@ -30,14 +31,18 @@ func _on_player_connected(id):
 @rpc("call_remote","reliable")
 func _make_player(info, theirPosition):
 	print(info)
-	print(theirPosition)
+	# print(theirPosition)
 	print(multiplayer.get_remote_sender_id())
-	var temp_character = playerKinematic.instantiate()
-	temp_character.position = theirPosition
-	var tempLabel = Label.new()
-	tempLabel.text = info["name"]
-	temp_character.add_child(tempLabel)
-	self.add_child(temp_character)
+	
+	if !playersIdConnected.has(str(multiplayer.get_remote_sender_id())):
+		var temp_character = playerKinematic.instantiate()
+		temp_character.position = theirPosition
+		temp_character.set_name(str(multiplayer.get_remote_sender_id()))
+		var tempLabel = Label.new()
+		tempLabel.text = info["name"]
+		temp_character.add_child(tempLabel)
+		self.add_child(temp_character)
+		_make_player.rpc_id(multiplayer.get_remote_sender_id(), player_info, PlayerPosition)
 	
 
 func _on_connected_ok():
@@ -52,6 +57,7 @@ func _on_host_pressed():
 		print("hosting uwu")
 		player_info["name"] = $Multi/Ui/LineEdit2.text
 		print(player_info["name"])
+		playersIdConnected.append(multiplayer.get_unique_id())
 
 func _on_connect_pressed():
 	if !connected:

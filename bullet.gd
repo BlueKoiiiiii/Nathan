@@ -7,5 +7,6 @@ func _on_hitbox_body_entered(body):
 
 
 func _on_hitbox_area_entered(area):
-	Bullet.visible = false
+	#Bullet.visible = false
+	pass
 	
