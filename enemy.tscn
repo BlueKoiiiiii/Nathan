@@ -153,13 +153,15 @@ size = Vector2(2048.2, 1768.63)
 size = Vector2(1896.5, 1765)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lcc01"]
-size = Vector2(865, 482.334)
+size = Vector2(617.575, 289.99)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yi7hw"]
 size = Vector2(183, 204)
 
 [node name="enemy" type="CharacterBody2D"]
 z_index = -100
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_bwifn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -182,7 +184,6 @@ metadata/_edit_lock_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_e2n65")
 animation = &"Attack"
-frame_progress = 0.273758
 
 [node name="right_side" type="Area2D" parent="."]
 position = Vector2(-366, -90)
@@ -207,12 +208,13 @@ shape = SubResource("RectangleShape2D_oqv55")
 metadata/_edit_lock_ = true
 
 [node name="attack_range" type="Area2D" parent="."]
-scale = Vector2(0.719346, 0.789741)
-collision_layer = 3
-collision_mask = 3
+position = Vector2(2, 0)
+scale = Vector2(1.37186, 1.35579)
+collision_layer = 256
+collision_mask = 256
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack_range"]
-position = Vector2(3, -7.50002)
+position = Vector2(10.5696, -13.2763)
 scale = Vector2(1.12957, 1.91776)
 shape = SubResource("RectangleShape2D_lcc01")
 metadata/_edit_lock_ = true
