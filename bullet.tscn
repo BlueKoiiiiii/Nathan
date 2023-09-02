@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://dd0ktge2otrr8"]
+[gd_scene load_steps=13 format=3 uid="uid://dd0ktge2otrr8"]
 
+[ext_resource type="Script" path="res://bullet.gd" id="1_23act"]
 [ext_resource type="Texture2D" uid="uid://r4lyywymtsv8" path="res://Spirtes/WaterAttack/sprite_0.png" id="1_dgcbq"]
 [ext_resource type="Texture2D" uid="uid://db6dtxnoh4g0m" path="res://Spirtes/WaterAttack/sprite_1.png" id="2_n8j3h"]
 [ext_resource type="Texture2D" uid="uid://ilw8rkpjy0o" path="res://Spirtes/WaterAttack/sprite_2.png" id="3_dwgof"]
@@ -48,6 +49,7 @@ animations = [{
 }]
 
 [node name="Bullet" type="RigidBody2D"]
+script = ExtResource("1_23act")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_56ygs")

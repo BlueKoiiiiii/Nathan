@@ -1,3 +1,6 @@
-extends AnimatedSprite2D
+extends RigidBody2D
 
-export (int) var speed = 300
+func _ready():
+	export (int) var speed = 500
+
+

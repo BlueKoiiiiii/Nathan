@@ -2,6 +2,7 @@ extends CharacterBody2D
 var bullet = preload("res://bullet.tscn").instantiate()
 
 
+
 const SPEED = 500.0
 var bulletspeed = 2000
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -34,13 +35,13 @@ func _physics_process(delta):
 			anim.play("Idle")
 	move_and_slide()
 
-	if Input.is_action_just_pressed("LMB"):
+	if Input.is_action_pressed("LMB"):
 		shoot()
+		
 	
+
 func shoot():
-	print("shot fired")
-	add_child(bullet)
+	get_parent().add_child(bullet)
+	bullet.global_position = global_position
 	var target = get_global_mouse_position()
-	var direction = target - bullet.global_position
-	bullet.apply_impulse(direction, Vector2(bulletspeed, 0))
-	
+	var direction = target - global_position
