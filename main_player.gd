@@ -7,9 +7,13 @@ var WHO = 0
 var it = 0
 var SPEED = 500.0
 var bulletspeed = 2000
+var hp = 100
+var hit = 1
+var acceptance = false
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 
 
+	
 	
 @onready var anim = get_node("AnimationPlayer")
 func _physics_process(delta):
@@ -47,6 +51,9 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("LMB"):
 #		WHO += 1
 		shoot()
+	if hp < 0:
+		get_tree().change_scene_to_file("res://game_over.tscn")
+
 		
 	
 #	if WHO%2 == 0: 
@@ -88,3 +95,17 @@ func shoot():
 #		var target = get_global_mouse_position()
 #		var direction = target - global_position
 #		bullet.set_linear_velocity(direction)
+
+func _on_playerhitbox_body_entered(body):
+	acceptance = true
+	if acceptance:
+		$hpbar.value = hp
+		hit += 20
+		hp = 100 - hit
+
+	
+#	print("real hp is", hp)
+
+
+func _on_playerhitbox_body_exited(body):
+	acceptance = false

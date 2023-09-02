@@ -31,7 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://ca78sdi443f3a" path="res://Spirtes/CHaracter/Idle/sprite_7.png" id="14_upmdl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tcic8"]
-size = Vector2(151, 237)
+size = Vector2(125, 171)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lsisl"]
 animations = [{
@@ -327,7 +327,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_duiye"]
-size = Vector2(105, 175)
+size = Vector2(90.5833, 129.239)
 
 [node name="Main_Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 263
@@ -335,7 +335,7 @@ collision_mask = 263
 script = ExtResource("1_nnhf4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.5, 4.5)
+position = Vector2(-5, 11)
 shape = SubResource("RectangleShape2D_tcic8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -358,5 +358,17 @@ collision_layer = 7
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="playerhitbox"]
-position = Vector2(-1.5, 3.5)
+position = Vector2(-3.47222, 7.93645)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_duiye")
+
+[node name="hpbar" type="ProgressBar" parent="."]
+offset_left = -1130.0
+offset_top = -619.0
+offset_right = -1065.0
+offset_bottom = -592.0
+scale = Vector2(12.72, 1)
+show_percentage = false
+
+[connection signal="body_entered" from="playerhitbox" to="." method="_on_playerhitbox_body_entered"]
+[connection signal="body_exited" from="playerhitbox" to="." method="_on_playerhitbox_body_exited"]
