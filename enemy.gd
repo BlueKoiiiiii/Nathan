@@ -6,9 +6,15 @@ var direction = 0
 var attack = 0
 var hit = 0
 var hp = 100 - hit
+#var player_hp_singleton = preload("res://singleton.gd")
 
-@export var hpbar: Node
 
+func set_hp(new_hp):
+	hp = new_hp
+
+func get_hp():
+	return hp
+	
 func _physics_process(delta):
 #	print(attack)
 	if player_chase:

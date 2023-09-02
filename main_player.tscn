@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://ca78sdi443f3a" path="res://Spirtes/CHaracter/Idle/sprite_7.png" id="14_upmdl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tcic8"]
+size = Vector2(151, 237)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lsisl"]
 animations = [{
@@ -329,11 +330,12 @@ _data = {
 size = Vector2(105, 175)
 
 [node name="Main_Player" type="CharacterBody2D" groups=["player"]]
-collision_layer = 271
-collision_mask = 271
+collision_layer = 263
+collision_mask = 263
 script = ExtResource("1_nnhf4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, 4.5)
 shape = SubResource("RectangleShape2D_tcic8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -351,6 +353,9 @@ libraries = {
 }
 
 [node name="playerhitbox" type="Area2D" parent="."]
+scale = Vector2(1.44, 1.38601)
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="playerhitbox"]
 position = Vector2(-1.5, 3.5)

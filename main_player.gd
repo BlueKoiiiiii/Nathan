@@ -12,7 +12,9 @@ var explode = false
 
 
 func _ready():
-	var explode = false
+	var global_data = get_node("res://enemy.tscn")
+	var hp = global_data.get_hp()
+	print("HP in AnotherScene: ", hp)
 	
 @onready var anim = get_node("AnimationPlayer")
 func _physics_process(delta):
@@ -58,9 +60,9 @@ func _physics_process(delta):
 		var enemyinstance = enemy.instantiate()
 		var hp = enemyinstance.hp
 		print("hp is", hp)
-		if $hpbar.value_changed:
-			explosion()
-			print("lower!")
+#		if $hpbar.value_changed:
+#			explosion()
+#			print("lower!")
 		
 #	if WHO%2 == 0: 
 #		shoot()
