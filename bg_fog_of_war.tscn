@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b4oohh0qrfaam"]
 
-[ext_resource type="Texture2D" uid="uid://psb4t4cvir23" path="res://Spirtes/fogofwar.png" id="1_losql"]
+[ext_resource type="Texture2D" uid="uid://psb4t4cvir23" path="res://Spirtes/FogofWar.png" id="1_losql"]
 [ext_resource type="Script" path="res://TileMap.gd" id="2_2nrvy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s1fbt"]
