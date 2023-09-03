@@ -362,12 +362,12 @@ position = Vector2(-3.47222, 7.93645)
 shape = SubResource("RectangleShape2D_duiye")
 
 [node name="hpbar" type="ProgressBar" parent="."]
+modulate = Color(0.560784, 0.0156863, 0.27451, 1)
 offset_left = -1130.0
 offset_top = -619.0
 offset_right = -1065.0
 offset_bottom = -592.0
 scale = Vector2(12.72, 1)
-show_percentage = false
 
 [connection signal="body_entered" from="playerhitbox" to="." method="_on_playerhitbox_body_entered"]
 [connection signal="body_exited" from="playerhitbox" to="." method="_on_playerhitbox_body_exited"]

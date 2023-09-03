@@ -7,6 +7,7 @@
 script = ExtResource("1_8ikx5")
 
 [node name="NewPiskel" type="Sprite2D" parent="."]
+top_level = true
 position = Vector2(577, 353.125)
 scale = Vector2(2.54222, 3.08019)
 texture = ExtResource("2_p0ttv")

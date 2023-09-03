@@ -13,7 +13,7 @@ func _ready():
 	multiplayer.peer_disconnected.connect(_peer_disconnected)
 	multiplayer.connected_to_server.connect(_connected_to_server)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	ourPosition = get_node("Main Player").position
 	var temp_peers = multiplayer.get_peers()
 	for k in temp_peers:
@@ -53,7 +53,7 @@ func _connected_to_server():
 	
 
 @rpc("call_local", "reliable")
-func load_game(game_scene_path, seed):
+func load_game(_game_scene_path, _seed1):
 	pass
 
 
