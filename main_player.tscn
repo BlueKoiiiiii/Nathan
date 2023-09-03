@@ -359,7 +359,6 @@ collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="playerhitbox"]
 position = Vector2(-3.47222, 7.93645)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_duiye")
 
 [node name="hpbar" type="ProgressBar" parent="."]
