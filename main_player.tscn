@@ -370,5 +370,10 @@ offset_bottom = -592.0
 scale = Vector2(12.72, 1)
 show_percentage = false
 
+[node name="Timer" type="Timer" parent="hpbar"]
+wait_time = 0.5
+autostart = true
+
 [connection signal="body_entered" from="playerhitbox" to="." method="_on_playerhitbox_body_entered"]
 [connection signal="body_exited" from="playerhitbox" to="." method="_on_playerhitbox_body_exited"]
+[connection signal="timeout" from="hpbar/Timer" to="." method="_on_timer_timeout"]

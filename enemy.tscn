@@ -46,7 +46,7 @@
 [ext_resource type="Texture2D" uid="uid://cwoqxa4lgr8ue" path="res://MosseDeath/Moss Detah14.png" id="44_fuy6n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cuweb"]
-size = Vector2(422, 488)
+size = Vector2(578, 369)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uql7a"]
 radius = 880.145
@@ -218,7 +218,7 @@ size = Vector2(2048.2, 1768.63)
 size = Vector2(1896.5, 1765)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lcc01"]
-size = Vector2(385.903, 232.685)
+size = Vector2(379.45, 145.765)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yi7hw"]
 size = Vector2(183, 204)
@@ -230,7 +230,7 @@ collision_mask = 4
 script = ExtResource("1_bwifn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(9, -18)
+position = Vector2(0, 70.5)
 shape = SubResource("RectangleShape2D_cuweb")
 debug_color = Color(0, 0.592157, 0.74902, 0.419608)
 metadata/_edit_lock_ = true
@@ -280,7 +280,7 @@ collision_layer = 256
 collision_mask = 256
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack_range"]
-position = Vector2(7.28938, -6.26941)
+position = Vector2(-2.18681, 52.7368)
 scale = Vector2(1.12957, 1.91776)
 shape = SubResource("RectangleShape2D_lcc01")
 metadata/_edit_lock_ = true

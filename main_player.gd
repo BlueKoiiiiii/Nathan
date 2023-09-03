@@ -24,7 +24,7 @@ func _physics_process(_delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var ydirection = Input.get_axis("ui_up", "ui_down")
-	if Input.is_key_pressed(KEY_SHIFT):
+	if Input.is_action_just_pressed("SHIFT"):
 		SPEED = 10000
 	if ydirection:
 		velocity.y = ydirection * SPEED
@@ -96,19 +96,7 @@ func shoot():
 #		var direction = target - global_position
 #		bullet.set_linear_velocity(direction)
 
-func _on_playerhitbox_body_entered(_body):
-	acceptance = true
-	if acceptance:
-		$hpbar.value = hp
-		hit += 20
-		hp = 100 - hit
 
-	
-#	print("real hp is", hp)
-
-
-func _on_playerhitbox_body_exited(_body):
-	acceptance = false
 
 
 func _on_area_2d_body_entered(body):
@@ -133,3 +121,19 @@ func _on_area_2d_2_body_entered(body):
 				print("healed")
 				$hpbar.value +=10
 				heal2 = false
+
+func _on_playerhitbox_body_entered(_body):
+	acceptance = true
+	
+#	print("real hp is", hp)
+
+
+func _on_playerhitbox_body_exited(_body):
+	acceptance = false
+	
+	
+func _on_timer_timeout():
+	if acceptance:
+		$hpbar.value = hp
+		hit += 5
+		hp = 100 - hit
