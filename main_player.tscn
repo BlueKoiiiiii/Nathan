@@ -340,8 +340,8 @@ properties/1/sync = true
 properties/1/watch = false
 
 [node name="Main_Player" type="CharacterBody2D" groups=["player"]]
-collision_layer = 33031
-collision_mask = 33031
+collision_layer = 263
+collision_mask = 263
 script = ExtResource("1_nnhf4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
