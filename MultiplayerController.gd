@@ -3,7 +3,6 @@ extends Control
 @export var Address = "127.0.0.1"
 @export var PORT = 3344
 var world = preload("res://world.tscn")
-var game_over = preload("res://game_over.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -50,15 +49,8 @@ func _process(delta):
 @rpc("any_peer","call_local")
 func StartGame():
 	var scene = world.instantiate()
-	if GameManager.hpdead: 
-		var temp = get_node("world")
-		get_tree().root.remove_child(scene)
-		get_parent().remove_child(GameManager)
-		var losescreen = game_over.instantiate()
-		get_tree().root.add_child(losescreen)
-	else: 
-		get_tree().root.add_child(scene)
-		self.hide()
+	get_tree().root.add_child(scene)
+	self.hide()
 
 func _on_host_pressed():
 	var peer = ENetMultiplayerPeer.new()
