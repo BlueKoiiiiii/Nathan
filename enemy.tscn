@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cvs3x1cpeslar"]
+[gd_scene load_steps=52 format=3 uid="uid://cvs3x1cpeslar"]
 
 [ext_resource type="Script" path="res://enemy.gd" id="1_bwifn"]
 [ext_resource type="Texture2D" uid="uid://tgx6bvsjq7sy" path="res://Spirtes/Boss_attack/sprite_00.png" id="2_bkvsq"]
@@ -29,6 +29,21 @@
 [ext_resource type="Texture2D" uid="uid://micx8q1baa4t" path="res://Spirtes/BossRight/sprite_1.png" id="27_nv0kk"]
 [ext_resource type="Texture2D" uid="uid://bu25gda2dm5gk" path="res://Spirtes/BossRight/sprite_2.png" id="28_bhk25"]
 [ext_resource type="Texture2D" uid="uid://dgi02j33xv5g6" path="res://Spirtes/BossRight/sprite_3.png" id="29_3142m"]
+[ext_resource type="Texture2D" uid="uid://dtkf3kjkevt7e" path="res://MosseDeath/Moss Detah00.png" id="30_ui8cp"]
+[ext_resource type="Texture2D" uid="uid://bo7wjhnl583tj" path="res://MosseDeath/Moss Detah01.png" id="31_wroej"]
+[ext_resource type="Texture2D" uid="uid://diay3koc4178j" path="res://MosseDeath/Moss Detah02.png" id="32_wtryi"]
+[ext_resource type="Texture2D" uid="uid://hh1fh2fned0b" path="res://MosseDeath/Moss Detah03.png" id="33_13lu5"]
+[ext_resource type="Texture2D" uid="uid://c23vd3sn0hp2m" path="res://MosseDeath/Moss Detah04.png" id="34_oaod1"]
+[ext_resource type="Texture2D" uid="uid://ccfp5y8tkle6s" path="res://MosseDeath/Moss Detah05.png" id="35_vy4lh"]
+[ext_resource type="Texture2D" uid="uid://hbllxtok4oa0" path="res://MosseDeath/Moss Detah06.png" id="36_b7whc"]
+[ext_resource type="Texture2D" uid="uid://bvpe4rpwp88a" path="res://MosseDeath/Moss Detah07.png" id="37_m3d3o"]
+[ext_resource type="Texture2D" uid="uid://begaa5ehchjrk" path="res://MosseDeath/Moss Detah08.png" id="38_4f6pc"]
+[ext_resource type="Texture2D" uid="uid://cmujeje6616cg" path="res://MosseDeath/Moss Detah09.png" id="39_pdai1"]
+[ext_resource type="Texture2D" uid="uid://bi7pwmaxjqoqy" path="res://MosseDeath/Moss Detah10.png" id="40_oekc4"]
+[ext_resource type="Texture2D" uid="uid://b020r0s75c6e" path="res://MosseDeath/Moss Detah11.png" id="41_7g5bb"]
+[ext_resource type="Texture2D" uid="uid://caolkuo7ryeiq" path="res://MosseDeath/Moss Detah12.png" id="42_a4yd3"]
+[ext_resource type="Texture2D" uid="uid://upqpq0av8r3c" path="res://MosseDeath/Moss Detah13.png" id="43_nibfk"]
+[ext_resource type="Texture2D" uid="uid://cwoqxa4lgr8ue" path="res://MosseDeath/Moss Detah14.png" id="44_fuy6n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cuweb"]
 size = Vector2(422, 488)
@@ -144,6 +159,56 @@ animations = [{
 "loop": true,
 "name": &"Right",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("30_ui8cp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_wroej")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_wtryi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_13lu5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_oaod1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_vy4lh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_b7whc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_m3d3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_4f6pc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_pdai1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_oekc4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_7g5bb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_a4yd3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_nibfk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_fuy6n")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tdakc"]
@@ -183,7 +248,8 @@ metadata/_edit_lock_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_e2n65")
-animation = &"Attack"
+animation = &"death"
+frame_progress = 0.835516
 
 [node name="right_side" type="Area2D" parent="."]
 position = Vector2(-366, -90)

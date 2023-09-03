@@ -25,9 +25,7 @@ func _physics_process(_delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var ydirection = Input.get_axis("ui_up", "ui_down")
 	if Input.is_key_pressed(KEY_SHIFT):
-		SPEED = 1250
-	else:
-		SPEED = 500
+		SPEED = 10000
 	if ydirection:
 		velocity.y = ydirection * SPEED
 		if velocity.x == 0:
@@ -48,8 +46,9 @@ func _physics_process(_delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		if velocity.y ==0: 
 			anim.play("Idle")
-			
+	
 	move_and_slide()
+	SPEED = 500
 	if Input.is_action_just_pressed("LMB"):
 #		WHO += 1
 		shoot()

@@ -19,6 +19,9 @@ func _physics_process(_delta):
 	for k in temp_peers:
 		if !(k == multiplayer.get_unique_id()):
 			_positions_update.rpc_id(k, ourPosition)
+	if ourPosition.y < -1:
+		get_tree().change_scene_to_file("res://game_win_2.tscn")
+	#print(ourPosition)
 
 func _peer_connected(id):
 	_register_player.rpc_id(id,player_info, ourPosition)
