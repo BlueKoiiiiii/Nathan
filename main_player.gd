@@ -25,7 +25,7 @@ func _physics_process(_delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var ydirection = Input.get_axis("W", "S")
 	if Input.is_action_just_pressed("SHIFT"):
-		SPEED = 100000
+		SPEED = 10000
 	if ydirection:
 		velocity.y = ydirection * SPEED
 		if velocity.x == 0:
@@ -124,7 +124,7 @@ func _on_area_2d_2_body_entered(body):
 
 func _on_playerhitbox_body_entered(_body):
 		$hpbar.value = hp
-#		hit += 5
+		hit += 5
 		hp = 100 - hit
 #	print("real hp is", hp)
 
