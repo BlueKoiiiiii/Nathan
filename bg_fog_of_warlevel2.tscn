@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dti2makrtjd07"]
+[gd_scene load_steps=5 format=3 uid="uid://bxsbgau7l6ob8"]
 
 [ext_resource type="Texture2D" uid="uid://psb4t4cvir23" path="res://Spirtes/FogofWar.png" id="1_aouxm"]
 [ext_resource type="Script" path="res://TileMap.gd" id="2_w0223"]

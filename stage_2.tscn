@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c6g7qahcaqdxt" path="res://Dungeon_Tileset_at.png" id="2_fiajm"]
 [ext_resource type="PackedScene" uid="uid://bvn0sp1650eej" path="res://main_player.tscn" id="3_ec0tu"]
 [ext_resource type="Script" path="res://BG2.gd" id="3_y2sea"]
-[ext_resource type="PackedScene" uid="uid://dti2makrtjd07" path="res://bg_fog_of_warlevel2.tscn" id="4_5ldps"]
+[ext_resource type="PackedScene" uid="uid://bxsbgau7l6ob8" path="res://bg_fog_of_warlevel2.tscn" id="4_5ldps"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g28sm"]
 texture = ExtResource("1_cp27e")
@@ -4290,39 +4290,34 @@ script = ExtResource("3_y2sea")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BG2/DoorCollision2"]
 position = Vector2(95.8833, 623.671)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_3kcjp")
 
 [node name="Area1stpotion" type="Area2D" parent="BG2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BG2/Area1stpotion"]
 position = Vector2(383.705, 464.151)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_wc55m")
 
 [node name="Areasecondpotion" type="Area2D" parent="BG2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BG2/Areasecondpotion"]
 position = Vector2(288.139, 191.827)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_g7pd0")
 
 [node name="Area2D3" type="Area2D" parent="BG2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BG2/Area2D3"]
 position = Vector2(623.842, -63.9794)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_v1e4m")
 
 [node name="Area2D4" type="Area2D" parent="BG2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BG2/Area2D4"]
 position = Vector2(32.59, 481.389)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_b48ak")
 
 [node name="Main_Player" parent="." instance=ExtResource("3_ec0tu")]
-position = Vector2(2748, 2682)
+position = Vector2(616, 3420)
 
 [node name="BG_FogOfWar" parent="." instance=ExtResource("4_5ldps")]
 visible = false
