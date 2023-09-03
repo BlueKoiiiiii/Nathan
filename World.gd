@@ -9,12 +9,9 @@ func _ready():
 	multiplayer.peer_connected.connect(_peer_connected)
 	multiplayer.peer_disconnected.connect(_peer_disconnected)
 	multiplayer.connected_to_server.connect(_connected_to_server)
-	
 
 func _physics_process(_delta):
 	ourPosition = get_node("Main Player").position
-	if ourPosition.y < -2: 
-		get_tree().change_scene_to_file("res://game_win_2.tscn")
 	#print(ourPosition)
 
 func _peer_connected(id):
