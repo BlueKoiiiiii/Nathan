@@ -28,10 +28,40 @@ func _ready():
 @onready var anim = get_node("AnimationPlayer")
 func _physics_process(_delta):
 	# print(EditorSceneFormatImporterBlend)
-
+	# Add the gravity.
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var ydirection = Input.get_axis("W", "S")
+	if Input.is_action_just_pressed("SHIFT"):
+		SPEED = 10000
+	if ydirection:
+		velocity.y = ydirection * SPEED
+		if velocity.x == 0:
+			if velocity.y < 0: 
+				anim.play("Up")
+			if velocity.y > 0: 
+				anim.play("Down")
+	else: velocity.y = move_toward(velocity.y, 0, SPEED)
+	var direction = Input.get_axis("A", "D")
+	if direction:
+		velocity.x = direction * SPEED
+		if velocity.y ==0: 
+			if velocity.x > 0: 
+				anim.play("Right")
+			if velocity.x < 0:
+				anim.play("Left")
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		if velocity.y ==0: 
+			anim.play("Idle")
+	
+	move_and_slide()
+	SPEED = 500
+	if Input.is_action_just_pressed("LMB"):
+#		WHO += 1
+		shoot()
 	if hp < 0:
 		get_tree().change_scene_to_file("res://game_over.tscn")
-		GameManager.hpdead = true
 
 	if $MultiplayerSynchronizer.get_multiplayer_authority() == multiplayer.get_unique_id():
 		var ydirection = Input.get_axis("W", "S")
