@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cramq2wtuqosl"]
+[gd_scene load_steps=21 format=3 uid="uid://s4k66hd4kea0"]
 
 [ext_resource type="Script" path="res://crab.gd" id="1_qdj82"]
 [ext_resource type="Texture2D" uid="uid://bqk4b4v6ynt8d" path="res://Crab_ATTACK/sprite_0.png" id="2_ya7cy"]
@@ -133,20 +133,24 @@ shape = SubResource("RectangleShape2D_hu5y0")
 
 [node name="left_side" type="Area2D" parent="."]
 position = Vector2(-255, -328)
+scale = Vector2(1, 1)
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="left_side"]
 position = Vector2(-28.1429, 474.041)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_tlt8y")
 
 [node name="hitbox" type="Area2D" parent="."]
 position = Vector2(-255, -328)
+scale = Vector2(1, 1)
 collision_layer = 3072
 collision_mask = 3072
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(391.19, 483.346)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_bhlwu")
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
