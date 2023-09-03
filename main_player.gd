@@ -20,6 +20,9 @@ var heal5 = true
 
 func _ready():
 	$MultiplayerSynchronizer.set_multiplayer_authority(str(name).to_int())
+#	await(get_tree().process_frame)
+#	if multiplayer.is_server():
+#		GameManager.player_master = self
 	
 
 @onready var anim = get_node("AnimationPlayer")
@@ -64,7 +67,6 @@ func _physics_process(_delta):
 	
 #	var player = get_tree().get_nodes_in_group("player")[0]
 #	var playerpos = player.get_position()
-#	print(playerpos)
 #	if WHO%2 == 0: 
 #		shoot()
 #		#print(WHO)

@@ -7627,7 +7627,6 @@ shape = SubResource("RectangleShape2D_laopy")
 position = Vector2(1453, 819)
 
 [node name="BG_FogOfWar" parent="." instance=ExtResource("4_g11b8")]
-visible = false
 
 [node name="TileMap" type="TileMap" parent="."]
 format = 2
