@@ -5,7 +5,7 @@ var enemy = preload("res://enemy.tscn").instantiate()
 #onready var bullet = $bullet
 var WHO = 0
 var it = 0
-var SPEED = 500.0
+var SPEED = 2000
 var bulletspeed = 2000
 var hp = 100
 var hit = 1
@@ -23,9 +23,9 @@ func _physics_process(_delta):
 	# Add the gravity.
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var ydirection = Input.get_axis("ui_up", "ui_down")
+	var ydirection = Input.get_axis("W", "S")
 	if Input.is_action_just_pressed("SHIFT"):
-		SPEED = 10000
+		SPEED = 100000
 	if ydirection:
 		velocity.y = ydirection * SPEED
 		if velocity.x == 0:
@@ -34,7 +34,7 @@ func _physics_process(_delta):
 			if velocity.y > 0: 
 				anim.play("Down")
 	else: velocity.y = move_toward(velocity.y, 0, SPEED)
-	var direction = Input.get_axis("ui_left", "ui_right")
+	var direction = Input.get_axis("A", "D")
 	if direction:
 		velocity.x = direction * SPEED
 		if velocity.y ==0: 
@@ -123,16 +123,12 @@ func _on_area_2d_2_body_entered(body):
 				heal2 = false
 
 func _on_playerhitbox_body_entered(_body):
-	acceptance = true
-	if acceptance:
 		$hpbar.value = hp
-		hit += 5
+#		hit += 5
 		hp = 100 - hit
 #	print("real hp is", hp)
 
 
-func _on_playerhitbox_body_exited(_body):
-	acceptance = false
 	
 	
 

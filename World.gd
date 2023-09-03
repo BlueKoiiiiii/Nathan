@@ -5,22 +5,42 @@ var player_ids
 var player_info = {"name" : "bob"}
 var ourPosition = Vector2(0,0)
 var multiCharScene = preload("res://multi_char.tscn")
-var joined = false;
+
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	multiplayer.peer_connected.connect(_peer_connected)
 	multiplayer.peer_disconnected.connect(_peer_disconnected)
 	multiplayer.connected_to_server.connect(_connected_to_server)
+	print("Almost")
+#	var asd = get_node("Canvas")
+#	self.remove_child(asd)
+\
+	
+#	if first_time != 0:
+#		second_time = 0
+#		print("second_time")
 
 func _physics_process(_delta):
+	var deleted = is_instance_valid("Canvas")
+#	if first_time == 0: 
+#		$"Main Player".global_position = $Marker2D.global_position
+#		await get_tree().create_timer(1).timeout
+#		first_time = 1
+#		print("first done")
+#	if second_time == 0:
+	if ourPosition.y < -1: 
+		get_tree().change_scene_to_file("res://game_win_2.tscn")
+
 	ourPosition = get_node("Main Player").position
 	var temp_peers = multiplayer.get_peers()
 	for k in temp_peers:
 		if !(k == multiplayer.get_unique_id()):
 			_positions_update.rpc_id(k, ourPosition)
-	if ourPosition.y < -1:
-		get_tree().change_scene_to_file("res://game_win_2.tscn")
+
+#		print("deleted", asd)
 	#print(ourPosition)
 
 func _peer_connected(id):
@@ -67,7 +87,7 @@ func _on_connect_pressed():
 	var peer = ENetMultiplayerPeer.new()
 	peer.create_client(ip, 3344)
 	multiplayer.multiplayer_peer = peer
-	joined = true
+
 
 func _on_host_pressed():
 	print("host")
@@ -75,5 +95,5 @@ func _on_host_pressed():
 	peer.create_server(3344, 8)
 	multiplayer.multiplayer_peer = peer
 	players[1] = player_info
-	joined = true
+
 

@@ -15,7 +15,7 @@ func _ready():
 	#while(true):
 func _physics_process(delta):
 	if Input.is_action_just_pressed("LMB"):
-		get_tree().change_scene_to_file("res://world.tscn")
+		get_tree().change_scene_to_file("res://main_menu.tscn")
 		#pass
 #		opacity += 0.1
 #		modulate.a = opacity
