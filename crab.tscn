@@ -1,30 +1,165 @@
-[gd_scene load_steps=2 format=3 uid="uid://s4k66hd4kea0"]
+[gd_scene load_steps=21 format=3 uid="uid://s4k66hd4kea0"]
+
+[ext_resource type="Script" path="res://crab.gd" id="1_qdj82"]
+[ext_resource type="Texture2D" uid="uid://bqk4b4v6ynt8d" path="res://Crab_ATTACK/sprite_0.png" id="2_ya7cy"]
+[ext_resource type="Texture2D" uid="uid://cyedftq5dpat4" path="res://Crab_ATTACK/sprite_1.png" id="3_sotd4"]
+[ext_resource type="Texture2D" uid="uid://cqk8uka4dhnn2" path="res://Crab_ATTACK/sprite_2.png" id="4_s5i6f"]
+[ext_resource type="Texture2D" uid="uid://dt48vubqxucry" path="res://Crab_ATTACK/sprite_3.png" id="5_rb4up"]
+[ext_resource type="Texture2D" uid="uid://d2hon0u0ed7ar" path="res://CrabBossLEftandRight/sprite_0.png" id="6_bk2i5"]
+[ext_resource type="Texture2D" uid="uid://b6qv318jqest1" path="res://CrabBossLEftandRight/sprite_1.png" id="7_d80tv"]
+[ext_resource type="Texture2D" uid="uid://byekgqpdqb3v3" path="res://CrabBossLEftandRight/sprite_2.png" id="8_au3pn"]
+[ext_resource type="Texture2D" uid="uid://bw8pmlqf2pabp" path="res://CrabBossLEftandRight/sprite_3.png" id="9_h0rph"]
+[ext_resource type="Texture2D" uid="uid://cj3ngey4p87lb" path="res://CrabBossLEftandRight/sprite_4.png" id="10_di3uv"]
+[ext_resource type="Texture2D" uid="uid://bc2syj7uiiojp" path="res://CrabBossLEftandRight/sprite_5.png" id="11_hwyho"]
+[ext_resource type="Texture2D" uid="uid://8tjjeoofsl12" path="res://CrabBossLEftandRight/sprite_6.png" id="12_cujo7"]
+[ext_resource type="Texture2D" uid="uid://q6cqim88kdn8" path="res://CrabBossLEftandRight/sprite_7.png" id="13_a8nqt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hl5i"]
+size = Vector2(149, 116)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wuxem"]
+radius = 844.132
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6m4dv"]
+radius = 113.04
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tep1y"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ya7cy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_sotd4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_s5i6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_rb4up")
+}],
 "loop": true,
 "name": &"Combat",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_bk2i5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_d80tv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_au3pn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_h0rph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_di3uv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_hwyho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_cujo7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_a8nqt")
+}],
 "loop": true,
 "name": &"run",
 "speed": 5.0
 }]
 
-[node name="crab" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hu5y0"]
+size = Vector2(849.625, 1691.34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tlt8y"]
+size = Vector2(833.971, 1654.88)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhlwu"]
+size = Vector2(163.025, 79.1726)
+
+[node name="crab" type="CharacterBody2D"]
+position = Vector2(-67, 600)
+scale = Vector2(2.55525, -2.63283)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_qdj82")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(137.5, 142)
+shape = SubResource("RectangleShape2D_4hl5i")
 
-[node name="Detection" type="Area2D" parent="."]
+[node name="detection_area" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+position = Vector2(140, 140)
+shape = SubResource("CircleShape2D_wuxem")
 
-[node name="Attack_range" type="Area2D" parent="."]
+[node name="attack_range" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 256
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack_range"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_range"]
+position = Vector2(138, 136)
+shape = SubResource("CircleShape2D_6m4dv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(136.973, 170.539)
+scale = Vector2(0.294504, -0.363893)
 sprite_frames = SubResource("SpriteFrames_tep1y")
 animation = &"Combat"
+frame_progress = 0.546096
+
+[node name="hpbar" type="ProgressBar" parent="."]
+offset_left = -113.101
+offset_top = 295.88
+offset_right = 421.899
+offset_bottom = 322.88
+show_percentage = false
+
+[node name="right_side" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right_side"]
+position = Vector2(563.742, 135.786)
+scale = Vector2(1, 0.999999)
+shape = SubResource("RectangleShape2D_hu5y0")
+
+[node name="left_side" type="Area2D" parent="."]
+position = Vector2(-255, -328)
+scale = Vector2(1, 1)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left_side"]
+position = Vector2(-28.1429, 474.041)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_tlt8y")
+
+[node name="hitbox" type="Area2D" parent="."]
+position = Vector2(-255, -328)
+scale = Vector2(1, 1)
+collision_layer = 3072
+collision_mask = 3072
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(391.19, 483.346)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_bhlwu")
+
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
+[connection signal="area_entered" from="attack_range" to="." method="_on_attack_range_area_entered"]
+[connection signal="body_entered" from="attack_range" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="attack_range" to="." method="_on_attack_range_body_exited"]
+[connection signal="body_entered" from="right_side" to="." method="_on_right_side_body_entered"]
+[connection signal="body_exited" from="right_side" to="." method="_on_right_side_body_exited"]
+[connection signal="body_entered" from="left_side" to="." method="_on_left_side_body_entered"]
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
