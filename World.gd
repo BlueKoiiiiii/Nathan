@@ -1,8 +1,11 @@
 extends Node2D
 
 var players = {}
+var player_ids
 var player_info = {"name" : "bob"}
 var ourPosition = Vector2(0,0)
+var multiCharScene = preload("res://multi_char.tscn")
+var joined = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,28 +15,42 @@ func _ready():
 
 func _physics_process(delta):
 	ourPosition = get_node("Main Player").position
-	#print(ourPosition)
+	var temp_peers = multiplayer.get_peers()
+	for k in temp_peers:
+		if !(k == multiplayer.get_unique_id()):
+			_positions_update.rpc_id(k, ourPosition)
 
 func _peer_connected(id):
-#	_register_player.rpc_id(id)
-#	_register_player(15,32)
-	pass
+	_register_player.rpc_id(id,player_info, ourPosition)
 
-@rpc("any_peer", "call_local", "reliable")
+func _peer_disconnected(id):
+	player_info.erase(id)
+
+@rpc("call_remote", "reliable")
+func _positions_update(theirPosition):
+	var nood = get_node(str(multiplayer.get_remote_sender_id()))
+	print(nood)
+	nood.position.x = theirPosition.x
+	nood.position.y = theirPosition.y
+
+@rpc("any_peer", "reliable")
 func _register_player(new_player_info, theirPosition):
 	print(theirPosition)
 	var new_player_id = multiplayer.get_remote_sender_id()
 	players[new_player_id] = new_player_info
-	
+	var tempChar = multiCharScene.instantiate()
+	tempChar.set_name(str(multiplayer.get_remote_sender_id()))
+	tempChar.position.x = theirPosition.x
+	tempChar.position.y = theirPosition.y
+	self.add_child(tempChar)
+#	tempChar.position.y = theirPosition.y	
 
-func _peer_disconnected(id):
-	player_info.erase(id)
-	
 
 func _connected_to_server():
 	print("Connected")
 	var peer_id = multiplayer.get_unique_id()
 	players[peer_id] = player_info
+	
 
 @rpc("call_local", "reliable")
 func load_game(game_scene_path, seed):
@@ -47,6 +64,7 @@ func _on_connect_pressed():
 	var peer = ENetMultiplayerPeer.new()
 	peer.create_client(ip, 3344)
 	multiplayer.multiplayer_peer = peer
+	joined = true
 
 func _on_host_pressed():
 	print("host")
@@ -54,4 +72,5 @@ func _on_host_pressed():
 	peer.create_server(3344, 8)
 	multiplayer.multiplayer_peer = peer
 	players[1] = player_info
+	joined = true
 

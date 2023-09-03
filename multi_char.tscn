@@ -29,7 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://ch0mrboeaq8tm" path="res://Spirtes/CHaracter/WaterRight/Water RIghtsprite_3.png" id="27_gr2xo"]
 [ext_resource type="Texture2D" uid="uid://cgt214c7604wd" path="res://Spirtes/CHaracter/WaterRight/Water RIghtsprite_2.png" id="28_6rrl8"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ugt63"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_njtd5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -141,9 +141,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="multiChar" type="Node"]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
 position = Vector2(-7, 8)
-sprite_frames = SubResource("SpriteFrames_ugt63")
+sprite_frames = SubResource("SpriteFrames_njtd5")
 animation = &"Left"
