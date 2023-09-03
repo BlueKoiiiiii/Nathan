@@ -12,6 +12,9 @@ var hit = 1
 var acceptance = false
 var heal1 = true
 var heal2 = true
+var heal3 = true
+var heal4 = true
+var heal5 = true
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 
 
@@ -54,8 +57,11 @@ func _physics_process(_delta):
 		shoot()
 	if hp < 0:
 		get_tree().change_scene_to_file("res://game_over.tscn")
-
+		
 	
+	var player = get_tree().get_nodes_in_group("player")[0]
+	var playerpos = player.get_position()
+	print(playerpos)
 #	if WHO%2 == 0: 
 #		shoot()
 #		#print(WHO)
@@ -103,24 +109,66 @@ func _on_area_2d_body_entered(body):
 	var player = get_tree().get_nodes_in_group("player")[0]
 	var playerpos = player.get_position()
 	if playerpos.x >= 2200 and playerpos.x <= 2400:
-		if playerpos.y >= 700 or playerpos.y <= 850:
+		if playerpos.y >= 700 and  playerpos.y <= 850:
 			if heal1:
 				print("healed")
 				$hpbar.value +=10
 				heal1 = false
+	
+	
+	
+
+func _on_area_1_stpotion_body_entered(body):
+	var player = get_tree().get_nodes_in_group("player")[0]
+	var playerpos = player.get_position()
+	if playerpos.x >= 2000 and playerpos.x <= 2500:
+		if playerpos.y >= 2225 and playerpos.y <= 3000:
+			print("boundary")
+			if heal3:
+				print("healed")
+				$hpbar.value +=10
+				heal3 = false
 				
 
 
 func _on_area_2d_2_body_entered(body):
 	var player = get_tree().get_nodes_in_group("player")[0]
 	var playerpos = player.get_position()
-	print(playerpos)
 	if playerpos.x >= 4000 and playerpos.x <= 4175:
-		if playerpos.y >= 375 or playerpos.y <= 525:
+		if playerpos.y >= 375 and playerpos.y <= 525:
 			if heal2:
 				print("healed")
 				$hpbar.value +=10
 				heal2 = false
+	
+	
+
+
+func _on_areasecondpotion_body_entered(body):
+	var player = get_tree().get_nodes_in_group("player")[0]
+	var playerpos = player.get_position()
+	if playerpos.x >= 1450 and playerpos.x <= 1900:
+		if playerpos.y >= 950 and playerpos.y <= 1400:
+			if heal4:
+				print("healed")
+				$hpbar.value +=10
+				heal4 = false
+
+
+func _on_area_2d_3_body_entered(body):
+	var player = get_tree().get_nodes_in_group("player")[0]
+	var playerpos = player.get_position()
+	if playerpos.x >= 3400 and playerpos.x <= 3800:
+		if playerpos.y >= -600 and playerpos.y <= -200:
+			if heal5:
+				print("healed")
+				$hpbar.value +=10
+				heal5 = false
+	
+
+
+
+
 
 func _on_playerhitbox_body_entered(_body):
 		$hpbar.value = hp
@@ -133,3 +181,5 @@ func _on_playerhitbox_body_entered(_body):
 	
 
 #		acceptance = false
+
+
