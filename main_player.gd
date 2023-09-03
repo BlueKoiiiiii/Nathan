@@ -10,6 +10,8 @@ var bulletspeed = 2000
 var hp = 100
 var hit = 1
 var acceptance = false
+var heal1 = true
+var heal2 = true
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 
 
@@ -54,7 +56,6 @@ func _physics_process(_delta):
 	if hp < 0:
 		get_tree().change_scene_to_file("res://game_over.tscn")
 
-		
 	
 #	if WHO%2 == 0: 
 #		shoot()
@@ -109,3 +110,27 @@ func _on_playerhitbox_body_entered(_body):
 
 func _on_playerhitbox_body_exited(_body):
 	acceptance = false
+
+
+func _on_area_2d_body_entered(body):
+	var player = get_tree().get_nodes_in_group("player")[0]
+	var playerpos = player.get_position()
+	if playerpos.x >= 2200 and playerpos.x <= 2400:
+		if playerpos.y >= 700 or playerpos.y <= 850:
+			if heal1:
+				print("healed")
+				$hpbar.value +=10
+				heal1 = false
+				
+
+
+func _on_area_2d_2_body_entered(body):
+	var player = get_tree().get_nodes_in_group("player")[0]
+	var playerpos = player.get_position()
+	print(playerpos)
+	if playerpos.x >= 4000 and playerpos.x <= 4175:
+		if playerpos.y >= 375 or playerpos.y <= 525:
+			if heal2:
+				print("healed")
+				$hpbar.value +=10
+				heal2 = false
