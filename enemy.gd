@@ -15,7 +15,6 @@ func set_hp(new_hp):
 func get_hp():
 	return hp
 	
-<<<<<<< Updated upstream
 func _physics_process(delta):
 #	print(attack)
 	if player_chase:
@@ -31,8 +30,6 @@ func _physics_process(delta):
 	else: 
 		$AnimatedSprite2D.play("Idle")
 	
-=======
-func _physics_process(_delta):
 	if hp < 1:
 		$AnimatedSprite2D.play("death")
 		await get_tree().create_timer(3).timeout 
@@ -51,8 +48,8 @@ func _physics_process(_delta):
 					$AnimatedSprite2D.play("Left")
 		else: 
 			$AnimatedSprite2D.play("Idle")
+	
 
->>>>>>> Stashed changes
 		
 
 
