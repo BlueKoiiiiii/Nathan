@@ -330,8 +330,8 @@ _data = {
 size = Vector2(90.5833, 129.239)
 
 [node name="Main_Player" type="CharacterBody2D" groups=["player"]]
-collision_layer = 263
-collision_mask = 263
+collision_layer = 33031
+collision_mask = 33031
 script = ExtResource("1_nnhf4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
