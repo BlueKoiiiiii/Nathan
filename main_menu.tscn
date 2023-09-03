@@ -1,7 +1,74 @@
-[gd_scene load_steps=3 format=3 uid="uid://fm1im6a46tn"]
+[gd_scene load_steps=18 format=3 uid="uid://fm1im6a46tn"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_44spf"]
-[ext_resource type="Texture2D" uid="uid://cgbxlc4i8fwry" path="res://Spirtes/CHaracter/Idle/8-FT3s0eGM3JRwy2R(1).png" id="2_uuljs"]
+[ext_resource type="Texture2D" uid="uid://dd8i5a6hrt1b4" path="res://hi/sprite_00.png" id="2_gsbpx"]
+[ext_resource type="Texture2D" uid="uid://dfw6k8aqvow0v" path="res://hi/sprite_01.png" id="3_oe41t"]
+[ext_resource type="Texture2D" uid="uid://ceo75inm6n2bc" path="res://hi/sprite_02.png" id="4_upgrh"]
+[ext_resource type="Texture2D" uid="uid://dsh0axgkochiu" path="res://hi/sprite_03.png" id="5_8j36g"]
+[ext_resource type="Texture2D" uid="uid://bafufg48qwme7" path="res://hi/sprite_04.png" id="6_lata6"]
+[ext_resource type="Texture2D" uid="uid://il6tjk0bcb8v" path="res://hi/sprite_05.png" id="7_wxw0x"]
+[ext_resource type="Texture2D" uid="uid://oferiq5now5f" path="res://hi/sprite_06.png" id="8_rs6us"]
+[ext_resource type="Texture2D" uid="uid://cjoflx6ui6lvq" path="res://hi/sprite_07.png" id="9_0g8ee"]
+[ext_resource type="Texture2D" uid="uid://b5am2j7b7x8xv" path="res://hi/sprite_08.png" id="10_3yhb6"]
+[ext_resource type="Texture2D" uid="uid://kku1r60rwwn3" path="res://hi/sprite_09.png" id="11_vxdmb"]
+[ext_resource type="Texture2D" uid="uid://bwgm652n6rb4g" path="res://hi/sprite_10.png" id="12_sj620"]
+[ext_resource type="Texture2D" uid="uid://n34a2qa5ptv4" path="res://hi/sprite_11.png" id="13_b6lyf"]
+[ext_resource type="Texture2D" uid="uid://cxyxiux1fmwdh" path="res://hi/sprite_12.png" id="14_7p38x"]
+[ext_resource type="Texture2D" uid="uid://h70lhpwdws8r" path="res://hi/sprite_13.png" id="15_gv802"]
+[ext_resource type="Texture2D" uid="uid://bh3s756vd5yn" path="res://hi/sprite_14.png" id="16_2we1m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rpnfa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gsbpx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_oe41t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_upgrh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8j36g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_lata6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wxw0x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rs6us")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_0g8ee")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_3yhb6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_vxdmb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_sj620")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_b6lyf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_7p38x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_gv802")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_2we1m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 13.0
+}]
 
 [node name="Main menu" type="Node2D"]
 script = ExtResource("1_44spf")
@@ -33,17 +100,17 @@ text = "NATHAN"
 scroll_active = false
 tab_size = 10
 
-[node name="8-ft3s0eGm3jRwy2r(1)" type="Sprite2D" parent="."]
-show_behind_parent = true
-position = Vector2(585, 328.5)
-scale = Vector2(2.23438, 2.22569)
-texture = ExtResource("2_uuljs")
-
 [node name="MultiMenu" type="HBoxContainer" parent="."]
 offset_left = 796.0
 offset_top = 550.0
 offset_right = 836.0
 offset_bottom = 590.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(579.5, 322)
+scale = Vector2(2.22852, 2.25)
+sprite_frames = SubResource("SpriteFrames_rpnfa")
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

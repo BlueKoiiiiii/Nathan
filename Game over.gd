@@ -13,6 +13,9 @@ func _ready():
 	# Set the texture to the captured image node.
 	captured_image.set_texture(tex)
 	#while(true):
+func _physics_process(delta):
+	if Input.is_action_just_pressed("LMB"):
+		get_tree().change_scene_to_file("res://world.tscn")
 		#pass
 #		opacity += 0.1
 #		modulate.a = opacity

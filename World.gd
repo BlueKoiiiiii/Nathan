@@ -12,6 +12,8 @@ func _ready():
 
 func _physics_process(_delta):
 	ourPosition = get_node("Main Player").position
+	if ourPosition.y < -1:
+		get_tree().change_scene_to_file("res://game_win_2.tscn")
 	#print(ourPosition)
 
 func _peer_connected(id):
