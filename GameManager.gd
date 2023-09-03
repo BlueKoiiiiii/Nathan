@@ -1,5 +1,5 @@
 extends Node
-
+var hpdead = false
 var Players = {}
 #var player_master = null
 # Called when the node enters the scene tree for the first time.
