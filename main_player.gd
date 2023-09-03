@@ -124,7 +124,10 @@ func _on_area_2d_2_body_entered(body):
 
 func _on_playerhitbox_body_entered(_body):
 	acceptance = true
-	
+	if acceptance:
+		$hpbar.value = hp
+		hit += 5
+		hp = 100 - hit
 #	print("real hp is", hp)
 
 
@@ -132,8 +135,5 @@ func _on_playerhitbox_body_exited(_body):
 	acceptance = false
 	
 	
-func _on_timer_timeout():
-	if acceptance:
-		$hpbar.value = hp
-		hit += 5
-		hp = 100 - hit
+
+#		acceptance = false
