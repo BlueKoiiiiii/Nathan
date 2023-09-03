@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://s4k66hd4kea0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tep1y"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"Combat",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[node name="crab" type="Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Detection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+
+[node name="Attack_range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack_range"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tep1y")
+animation = &"Combat"

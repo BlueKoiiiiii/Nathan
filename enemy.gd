@@ -17,20 +17,7 @@ func get_hp():
 	
 func _physics_process(delta):
 #	print(attack)
-	if player_chase:
-		if attack == 1: 
-			$AnimatedSprite2D.play("Attack")
-		else:
-			print(position)
-			position += (player.position - position)/speed
-			if direction == 0:
-				$AnimatedSprite2D.play("Right")
-			else: 
-				$AnimatedSprite2D.play("Left")
-	else: 
-		$AnimatedSprite2D.play("Idle")
-	
-	if hp < 1:
+	if hp == 0 or hp < 1:
 		$AnimatedSprite2D.play("death")
 		await get_tree().create_timer(3).timeout 
 		get_tree().change_scene_to_file("res://game_win.tscn")
@@ -88,7 +75,7 @@ func _on_attack_range_body_exited(body):
 func _on_hitbox_body_entered(body):
 	$hpbar.value = hp
 	hit += 1
-	hp = 100 - hit
+	hp = 10 - hit
 	print("real hp is", hp)
 	
 

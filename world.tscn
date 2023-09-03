@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://brer42vcvpr1y"]
+[gd_scene load_steps=13 format=3 uid="uid://brer42vcvpr1y"]
 
 [ext_resource type="Script" path="res://World.gd" id="1_2tdyy"]
 [ext_resource type="PackedScene" uid="uid://bvn0sp1650eej" path="res://main_player.tscn" id="1_dmwcr"]
@@ -6,8 +6,6 @@
 [ext_resource type="Script" path="res://BG.gd" id="3_y6kr6"]
 [ext_resource type="PackedScene" uid="uid://b4oohh0qrfaam" path="res://bg_fog_of_war.tscn" id="4_g11b8"]
 [ext_resource type="Texture2D" uid="uid://c6g7qahcaqdxt" path="res://Dungeon_Tileset_at.png" id="5_dsbfn"]
-[ext_resource type="Script" path="res://Node2D.gd" id="8_qf1tj"]
-[ext_resource type="Texture2D" uid="uid://dkt8x4kcx6u3f" path="res://dsa.png" id="9_yrew2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xnkwq"]
 texture = ExtResource("5_dsbfn")
@@ -3409,27 +3407,6 @@ visible = false
 
 [node name="Marker2D2" type="Marker2D" parent="."]
 position = Vector2(4890, -714)
-
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(-3210, 642)
-script = ExtResource("8_qf1tj")
-
-[node name="CapturedImage" type="TextureRect" parent="Node2D"]
-offset_left = -1059.0
-offset_top = -586.0
-offset_right = 1212.0
-offset_bottom = 667.0
-
-[node name="Timer" type="Timer" parent="Node2D"]
-
-[node name="Dsa" type="Sprite2D" parent="Node2D"]
-top_level = true
-position = Vector2(-3123, 626)
-scale = Vector2(4.53333, 3.76101)
-texture = ExtResource("9_yrew2")
-
-[node name="win1location" type="Marker2D" parent="Node2D"]
-position = Vector2(24, 0)
 
 [connection signal="pressed" from="Multi/Ui/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="Multi/Ui/Connect" to="." method="_on_connect_pressed"]
