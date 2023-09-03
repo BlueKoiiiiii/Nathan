@@ -15,7 +15,7 @@ func set_hp(new_hp):
 func get_hp():
 	return hp
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	if hp < 1:
 		$AnimatedSprite2D.play("death")
 		await get_tree().create_timer(3).timeout 
@@ -46,7 +46,7 @@ func _physics_process(delta):
 
 
 
-func _on_detection_area_body_exited(body):
+func _on_detection_area_body_exited(_body):
 	player = null
 	player_chase = false
 	$AnimatedSprite2D.play("Idle")
@@ -63,15 +63,15 @@ func _on_left_side_body_entered(body):
 	player_chase = true
 
 
-func _on_attack_range_body_entered(body):
+func _on_attack_range_body_entered(_body):
 	attack = 1
 
 
-func _on_attack_range_body_exited(body):
+func _on_attack_range_body_exited(_body):
 	attack = 0
 
 
-func _on_hitbox_body_entered(body):
+func _on_hitbox_body_entered(_body):
 	$hpbar.value = hp
 	hit += 1
 	hp = 100 - hit

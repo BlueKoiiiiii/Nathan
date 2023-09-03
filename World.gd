@@ -11,7 +11,7 @@ func _ready():
 	multiplayer.connected_to_server.connect(_connected_to_server)
 	
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	ourPosition = get_node("Main Player").position
 	if ourPosition.y < -2: 
 		get_tree().change_scene_to_file("res://game_win_2.tscn")
@@ -30,7 +30,7 @@ func _connected_to_server():
 	players[peer_id] = player_info
 
 @rpc("call_local", "reliable")
-func load_game(game_scene_path, seed):
+func load_game(_game_scene_path, _seed1):
 	pass
 
 @rpc("any_peer", "reliable")

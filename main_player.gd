@@ -16,7 +16,7 @@ var acceptance = false
 	
 	
 @onready var anim = get_node("AnimationPlayer")
-func _physics_process(delta):
+func _physics_process(_delta):
 	# print(EditorSceneFormatImporterBlend)
 	# Add the gravity.
 	# Get the input direction and handle the movement/deceleration.
@@ -96,7 +96,7 @@ func shoot():
 #		var direction = target - global_position
 #		bullet.set_linear_velocity(direction)
 
-func _on_playerhitbox_body_entered(body):
+func _on_playerhitbox_body_entered(_body):
 	acceptance = true
 	if acceptance:
 		$hpbar.value = hp
@@ -107,5 +107,5 @@ func _on_playerhitbox_body_entered(body):
 #	print("real hp is", hp)
 
 
-func _on_playerhitbox_body_exited(body):
+func _on_playerhitbox_body_exited(_body):
 	acceptance = false

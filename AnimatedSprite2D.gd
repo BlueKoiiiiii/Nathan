@@ -7,5 +7,5 @@ func _ready():
 	
 
 
-func _on_bullet_body_entered(body):
+func _on_bullet_body_entered(_body):
 	hit = true
